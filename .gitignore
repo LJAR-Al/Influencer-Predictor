@@ -1,0 +1,54 @@
+# Dependencies
+node_modules/
+venv/
+env/
+.venv/
+
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+dist/
+build/
+*.egg
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Data files (keep structure, ignore large data)
+*.csv
+*.parquet
+*.pkl
+*.h5
+*.hdf5
+data/raw/
+data/processed/
+
+# Model artifacts
+models/*.pkl
+models/*.h5
+models/*.joblib
+*.onnx
+
+# Environment & secrets
+.env
+.env.*
+*.key
+credentials/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Logs
+*.log
+logs/
+
+# Separate project
+fraud-guardian-console/
