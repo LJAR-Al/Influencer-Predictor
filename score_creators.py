@@ -28,7 +28,10 @@ warnings.filterwarnings("ignore")
 import numpy as np
 import pandas as pd
 
-from src.config import QUANTILES, PROFITABILITY_THRESHOLD, PRE_CAMPAIGN_NUMERIC, PRE_CAMPAIGN_CATEGORICAL
+from src.config import (
+    QUANTILES, PROFITABILITY_THRESHOLD, PRE_CAMPAIGN_NUMERIC, PRE_CAMPAIGN_CATEGORICAL,
+    CLASSIFIER_THRESHOLD, DEFAULT_NEW_LEVEL, DEFAULT_REBOOKING_LEVEL,
+)
 from src.predict import load_models
 from src.rebooking import build_creator_profiles, price_rebooking
 from src.dynamic_benchmarks import compute_segmented_benchmarks, get_benchmark_for_creator
@@ -110,7 +113,7 @@ def score_batch(input_path, output_path=None):
 
         for qname in QUANTILES:
             cpm = bm[qname]
-            if conv_prob[i] >= 0.5:
+            if conv_prob[i] >= CLASSIFIER_THRESHOLD:
                 max_price = cpm * (ev[i] / 1000)
                 original.loc[i, f"{qname}_max_cpm"] = round(cpm, 2)
                 original.loc[i, f"{qname}_max_price"] = round(max_price, 2)
@@ -126,7 +129,8 @@ def score_batch(input_path, output_path=None):
             continue
 
         # Pass moderate benchmark price for blending
-        benchmark_price = original.loc[i, "moderate_max_price"]
+        # Use aggressive benchmark for rebooking blend (backtested: better ROI)
+        benchmark_price = original.loc[i, f"{DEFAULT_REBOOKING_LEVEL}_max_price"]
         result = price_rebooking(creator_name, ev[i], profiles, benchmark_max_price=benchmark_price)
         if result is None:
             continue
@@ -145,11 +149,11 @@ def score_batch(input_path, output_path=None):
     has_asking = "asking_price" in original.columns
     if has_asking:
         asking = pd.to_numeric(original["asking_price"], errors="coerce")
-        # Use rebooking price if available, otherwise moderate benchmark
+        # Use rebooking blended price if available, otherwise moderate benchmark
         best_price = np.where(
             original["is_rebooking"],
             original["rebooking_max_price"],
-            original["moderate_max_price"],
+            original[f"{DEFAULT_NEW_LEVEL}_max_price"],
         )
         original["best_max_price"] = np.round(best_price, 2)
         original["asking_vs_best"] = (asking - best_price).round(2)

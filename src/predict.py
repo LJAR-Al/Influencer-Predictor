@@ -5,7 +5,7 @@ import joblib
 import json
 from pathlib import Path
 
-from src.config import QUANTILES, PROFITABILITY_THRESHOLD
+from src.config import QUANTILES, PROFITABILITY_THRESHOLD, CLASSIFIER_THRESHOLD
 
 MODELS_DIR = Path(__file__).parent.parent / "models"
 
@@ -43,7 +43,7 @@ def score_creator(X, expected_views, clf=None, benchmarks=None):
     rows = []
     for name, q in QUANTILES.items():
         cpm = benchmarks[name]
-        max_price = np.where(conv_prob >= 0.5, cpm * (ev / 1000), 0.0)
+        max_price = np.where(conv_prob >= CLASSIFIER_THRESHOLD, cpm * (ev / 1000), 0.0)
         predicted_iap = max_price * PROFITABILITY_THRESHOLD
 
         for i in range(len(X)):

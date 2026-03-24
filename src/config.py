@@ -50,3 +50,14 @@ QUANTILES = {
 RANDOM_STATE = 42
 TEST_SIZE = 0.2
 CV_FOLDS = 5
+
+# Classifier threshold: minimum P(conversion) to consider a creator
+# Lowered from 0.5 to 0.3 to reduce missed profitable deals
+# (backtest: catches 1 more profitable campaign with minimal risk)
+CLASSIFIER_THRESHOLD = 0.3
+
+# Pricing strategy (backtested):
+# - New creators: moderate benchmark (P50 CPM)
+# - Rebookings: aggressive benchmark (P75 CPM) — more confidence from real data
+DEFAULT_NEW_LEVEL = "moderate"
+DEFAULT_REBOOKING_LEVEL = "aggressive"
