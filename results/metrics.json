@@ -1,7 +1,7 @@
 {
-  "train_size": 407,
-  "test_size": 102,
   "classifier": {
+    "train_size": 407,
+    "test_size": 102,
     "cv_f1": 0.9071481538853604,
     "cv_f1_std": 0.014527039316379541,
     "accuracy": 0.8725490196078431,
@@ -9,17 +9,11 @@
     "recall": 0.9393939393939394,
     "f1": 0.9051094890510949
   },
-  "regressor": {
-    "converters_train": 267,
-    "l2_cv_mae_log": 1.3925338699165866,
-    "l2_mae": 332.6291522827545,
-    "l2_rmse": 856.8595974789599,
-    "l2_r2": 0.20249752596106196,
-    "conservative_mae": 365.83296188535,
-    "moderate_mae": 335.163412461143,
-    "aggressive_mae": 309.3875139798514,
-    "price_range_coverage": 0.4411764705882353,
-    "conservative_safety_rate": 0.7352941176470589,
-    "conservative_profit_rate": 0.4803921568627451
+  "benchmarks": {
+    "conservative": 22.56587184156613,
+    "moderate": 28.193548387096776,
+    "aggressive": 38.62538461538462,
+    "mean": 31.76849933196359,
+    "count": 102
   }
 }
