@@ -31,6 +31,7 @@ import pandas as pd
 from src.config import QUANTILES, PROFITABILITY_THRESHOLD, PRE_CAMPAIGN_NUMERIC, PRE_CAMPAIGN_CATEGORICAL
 from src.predict import load_models
 from src.rebooking import build_creator_profiles, price_rebooking
+from src.dynamic_benchmarks import compute_segmented_benchmarks, get_benchmark_for_creator
 from src.data import load_raw, clean
 
 
@@ -86,15 +87,28 @@ def score_batch(input_path, output_path=None):
     original["rebooking_max_cpm"] = np.nan
     original["hist_view_ratio"] = np.nan
 
-    # Benchmark-based pricing (for new creators)
-    for qname, q in QUANTILES.items():
-        cpm = benchmarks[qname]
-        max_price = np.where(conv_prob >= 0.5, cpm * (ev / 1000), 0.0)
-        min_iap = max_price * PROFITABILITY_THRESHOLD
+    # Dynamic benchmark pricing (segmented by country + gender skew)
+    seg_benchmarks = compute_segmented_benchmarks(df_training)
+    original["benchmark_segment"] = ""
 
-        original[f"{qname}_max_cpm"] = np.where(conv_prob >= 0.5, round(cpm, 2), 0.0)
-        original[f"{qname}_max_price"] = np.round(max_price, 2)
-        original[f"{qname}_min_iap_needed"] = np.round(min_iap, 2)
+    for qname in QUANTILES:
+        original[f"{qname}_max_cpm"] = 0.0
+        original[f"{qname}_max_price"] = 0.0
+        original[f"{qname}_min_iap_needed"] = 0.0
+
+    for i in range(len(original)):
+        country = df.loc[i, "demographics_main_country"] if "demographics_main_country" in df.columns else "Unknown"
+        fem_pct = df.loc[i, "demographics_female_pct"] if "demographics_female_pct" in df.columns else 0
+        bm, segment = get_benchmark_for_creator(country, fem_pct, seg_benchmarks)
+        original.loc[i, "benchmark_segment"] = segment
+
+        for qname in QUANTILES:
+            cpm = bm[qname]
+            if conv_prob[i] >= 0.5:
+                max_price = cpm * (ev[i] / 1000)
+                original.loc[i, f"{qname}_max_cpm"] = round(cpm, 2)
+                original.loc[i, f"{qname}_max_price"] = round(max_price, 2)
+                original.loc[i, f"{qname}_min_iap_needed"] = round(max_price * PROFITABILITY_THRESHOLD, 2)
 
     # Rebooking overrides for returning creators
     rebooking_count = 0
@@ -143,9 +157,8 @@ def score_batch(input_path, output_path=None):
     original.to_csv(output_path, index=False)
     print(f"Scored {len(original)} creators → {output_path}")
     print(f"  Rebookings (actual data): {rebooking_count}")
-    print(f"  New creators (benchmark): {len(original) - rebooking_count}")
-    print(f"Benchmarks from {benchmarks['count']} profitable campaigns")
-    print(f"  Conservative CPM: ${benchmarks['conservative']:.2f}  |  Moderate: ${benchmarks['moderate']:.2f}  |  Aggressive: ${benchmarks['aggressive']:.2f}")
+    print(f"  New creators (dynamic benchmark): {len(original) - rebooking_count}")
+    print(f"  Segments used: {original['benchmark_segment'].value_counts().to_dict()}")
 
     # Print summary
     print(f"\n{'─'*110}")
@@ -156,7 +169,8 @@ def score_batch(input_path, output_path=None):
         reach = int(row["expected_views"])
         is_rb = row["is_rebooking"]
 
-        tag = f"★ REBOOKING ({int(row['prior_campaigns'])} prior)" if is_rb else "NEW"
+        seg = row.get("benchmark_segment", "")
+        tag = f"★ REBOOKING ({int(row['prior_campaigns'])} prior)" if is_rb else f"NEW [{seg}]"
         print(f"\n  {label}  |  {tag}  |  Conversion: {conv}%  |  Reach: {reach:,}")
 
         if is_rb:
