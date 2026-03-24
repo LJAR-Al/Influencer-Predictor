@@ -18,7 +18,8 @@ Input CSV columns (optional but recommended):
     - creator_name             For display only
     - asking_price             Creator's initial price pitch
 
-Output: same CSV with added columns for each pricing level.
+Returning creators are automatically detected and priced using their
+actual historical conversion rate and APPU instead of benchmarks.
 """
 import sys
 import warnings
@@ -29,11 +30,16 @@ import pandas as pd
 
 from src.config import QUANTILES, PROFITABILITY_THRESHOLD, PRE_CAMPAIGN_NUMERIC, PRE_CAMPAIGN_CATEGORICAL
 from src.predict import load_models
+from src.rebooking import build_creator_profiles, price_rebooking
+from src.data import load_raw, clean
 
 
 def score_batch(input_path, output_path=None):
-    models = load_models()
-    clf = models["classifier"]
+    clf, benchmarks = load_models()
+
+    # Load training data for rebooking profiles
+    df_training = clean(load_raw())
+    profiles = build_creator_profiles(df_training)
 
     df = pd.read_csv(input_path)
     original = df.copy()
@@ -42,7 +48,7 @@ def score_batch(input_path, output_path=None):
     if "posting_platform" in df.columns:
         df["posting_platform"] = df["posting_platform"].str.strip().str.title()
 
-    # Fill missing optional columns with defaults
+    # Fill missing optional columns
     for col in PRE_CAMPAIGN_NUMERIC:
         if col not in df.columns:
             df[col] = 0.0
@@ -53,80 +59,124 @@ def score_batch(input_path, output_path=None):
             df[col] = "Unknown"
         df[col] = df[col].fillna("Unknown")
 
-    # Add empty creator history columns (new creators have no history)
+    # Creator history columns
     df["creator_prior_campaigns"] = 0
     df["creator_avg_revenue"] = 0.0
     df["creator_avg_rev_per_1k_views"] = 0.0
 
-    # Build feature matrix in the exact order the model expects
     feature_cols = PRE_CAMPAIGN_NUMERIC + [
         "creator_prior_campaigns", "creator_avg_revenue", "creator_avg_rev_per_1k_views",
     ] + PRE_CAMPAIGN_CATEGORICAL
     X = df[[c for c in feature_cols if c in df.columns]]
 
-    # Score
+    # Classifier scores
     conv_prob = clf.predict_proba(X)[:, 1]
     original["conversion_likelihood"] = (conv_prob * 100).round(1)
 
     ev = df["expected_views"].values.astype(float)
+    name_col = "creator_name" if "creator_name" in df.columns else None
 
-    for name, q in QUANTILES.items():
-        if name not in models:
-            continue
-        log_pred = models[name].predict(X)
-        log_pred = np.where(conv_prob >= 0.5, log_pred, 0.0)
-        revenue = np.expm1(log_pred)
-        max_price = revenue / PROFITABILITY_THRESHOLD
-        max_cpm = np.where(ev > 0, max_price / (ev / 1000), 0.0)
+    # Initialize columns
+    original["is_rebooking"] = False
+    original["prior_campaigns"] = 0
+    original["rebooking_conv_rate"] = np.nan
+    original["rebooking_appu"] = np.nan
+    original["rebooking_predicted_iap"] = np.nan
+    original["rebooking_max_price"] = np.nan
+    original["rebooking_max_cpm"] = np.nan
+    original["hist_view_ratio"] = np.nan
 
-        original[f"{name}_predicted_iap"] = revenue.round(2)
-        original[f"{name}_max_price"] = max_price.round(2)
-        original[f"{name}_max_cpm"] = max_cpm.round(2)
+    # Benchmark-based pricing (for new creators)
+    for qname, q in QUANTILES.items():
+        cpm = benchmarks[qname]
+        max_price = np.where(conv_prob >= 0.5, cpm * (ev / 1000), 0.0)
+        min_iap = max_price * PROFITABILITY_THRESHOLD
 
-    # Enforce monotonic ordering per row
+        original[f"{qname}_max_cpm"] = np.where(conv_prob >= 0.5, round(cpm, 2), 0.0)
+        original[f"{qname}_max_price"] = np.round(max_price, 2)
+        original[f"{qname}_min_iap_needed"] = np.round(min_iap, 2)
+
+    # Rebooking overrides for returning creators
+    rebooking_count = 0
     for i in range(len(original)):
-        levels = list(QUANTILES.keys())
-        for col_type in ["predicted_iap", "max_price", "max_cpm"]:
-            vals = [original.loc[i, f"{lv}_{col_type}"] for lv in levels]
-            vals_sorted = sorted(vals)
-            for j, lv in enumerate(levels):
-                original.loc[i, f"{lv}_{col_type}"] = vals_sorted[j]
+        if name_col is None:
+            continue
+        creator_name = original.loc[i, name_col]
+        if pd.isna(creator_name):
+            continue
 
-    # Add asking price comparison (moderate = midpoint)
+        result = price_rebooking(creator_name, ev[i], profiles)
+        if result is None:
+            continue
+
+        rebooking_count += 1
+        original.loc[i, "is_rebooking"] = True
+        original.loc[i, "prior_campaigns"] = result["prior_campaigns"]
+        original.loc[i, "rebooking_conv_rate"] = result["conversion_rate"]
+        original.loc[i, "rebooking_appu"] = result["appu"]
+        original.loc[i, "rebooking_predicted_iap"] = result["predicted_iap"]
+        original.loc[i, "rebooking_max_price"] = result["max_price"]
+        original.loc[i, "rebooking_max_cpm"] = result["max_cpm"]
+        original.loc[i, "hist_view_ratio"] = result["avg_view_ratio"]
+
+    # Asking price comparison (vs moderate for new, vs rebooking for returning)
     has_asking = "asking_price" in original.columns
     if has_asking:
         asking = pd.to_numeric(original["asking_price"], errors="coerce")
-        original["asking_vs_moderate"] = (asking - original["moderate_max_price"]).round(2)
-        original["asking_vs_moderate_pct"] = ((original["asking_vs_moderate"] / asking) * 100).round(1)
+        # Use rebooking price if available, otherwise moderate benchmark
+        best_price = np.where(
+            original["is_rebooking"],
+            original["rebooking_max_price"],
+            original["moderate_max_price"],
+        )
+        original["best_max_price"] = np.round(best_price, 2)
+        original["asking_vs_best"] = (asking - best_price).round(2)
+        original["asking_vs_best_pct"] = np.where(
+            asking > 0,
+            ((original["asking_vs_best"] / asking) * 100).round(1),
+            0.0,
+        )
 
     # Output
     if output_path is None:
         output_path = input_path.replace(".csv", "_scored.csv")
     original.to_csv(output_path, index=False)
     print(f"Scored {len(original)} creators → {output_path}")
+    print(f"  Rebookings (actual data): {rebooking_count}")
+    print(f"  New creators (benchmark): {len(original) - rebooking_count}")
+    print(f"Benchmarks from {benchmarks['count']} profitable campaigns")
+    print(f"  Conservative CPM: ${benchmarks['conservative']:.2f}  |  Moderate: ${benchmarks['moderate']:.2f}  |  Aggressive: ${benchmarks['aggressive']:.2f}")
 
     # Print summary
-    print(f"\n{'─'*100}")
-    name_col = "creator_name" if "creator_name" in original.columns else None
+    print(f"\n{'─'*110}")
 
     for i, row in original.iterrows():
         label = row[name_col] if name_col else f"Creator #{i+1}"
         conv = row["conversion_likelihood"]
         reach = int(row["expected_views"])
+        is_rb = row["is_rebooking"]
 
-        print(f"\n  {label}  |  Conversion: {conv}%  |  Reach: {reach:,}")
+        tag = f"★ REBOOKING ({int(row['prior_campaigns'])} prior)" if is_rb else "NEW"
+        print(f"\n  {label}  |  {tag}  |  Conversion: {conv}%  |  Reach: {reach:,}")
 
-        if has_asking and pd.notna(row.get("asking_price")):
+        if is_rb:
+            vr = row["hist_view_ratio"]
+            vr_label = f"{vr:.0%} of expected" if pd.notna(vr) else "N/A"
+            print(f"  Conv rate: {row['rebooking_conv_rate']:.4%}  |  APPU: ${row['rebooking_appu']:.2f}  |  Hist view delivery: {vr_label}")
+            print(f"  Pred IAP: ${row['rebooking_predicted_iap']:,.0f}  |  Max price: ${row['rebooking_max_price']:,.0f}  |  Max CPM: ${row['rebooking_max_cpm']:.2f}")
+
+        if has_asking and pd.notna(row.get("asking_price")) and row["asking_price"] > 0:
             ask = row["asking_price"]
-            mod_price = row["moderate_max_price"]
-            diff = row["asking_vs_moderate"]
-            diff_pct = row["asking_vs_moderate_pct"]
-            print(f"  Asking: ${ask:,.0f}  |  Moderate max: ${mod_price:,.0f}  |  Diff: ${diff:+,.0f} ({diff_pct:+.0f}%)")
+            best = row["best_max_price"]
+            diff = row["asking_vs_best"]
+            diff_pct = row["asking_vs_best_pct"]
+            print(f"  Asking: ${ask:,.0f}  |  Best max: ${best:,.0f}  |  Diff: ${diff:+,.0f} ({diff_pct:+.0f}%)")
 
-        print(f"  {'Level':<15} {'Pred IAP':>10} {'Max Price':>12} {'Max CPM':>10}")
-        print(f"  {'─'*50}")
-        for lv in QUANTILES:
-            print(f"  {lv:<15} ${row[f'{lv}_predicted_iap']:>8,.0f} ${row[f'{lv}_max_price']:>10,.0f} ${row[f'{lv}_max_cpm']:>8,.2f}")
+        if not is_rb:
+            print(f"  {'Level':<15} {'Max CPM':>10} {'Max Price':>12} {'Min IAP':>12}")
+            print(f"  {'─'*52}")
+            for lv in QUANTILES:
+                print(f"  {lv:<15} ${row[f'{lv}_max_cpm']:>8,.2f} ${row[f'{lv}_max_price']:>10,.0f} ${row[f'{lv}_min_iap_needed']:>10,.0f}")
 
     return original
 

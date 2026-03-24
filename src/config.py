@@ -38,11 +38,12 @@ PRE_CAMPAIGN_CATEGORICAL = [
     "demographics_main_country",
 ]
 
-# Quantile levels for price ranges (tighter bands)
+# Quantile levels for price ranges
+# These are applied to the profitable campaign CPM distribution
 QUANTILES = {
-    "conservative": 0.30,  # 70% confident revenue will be at least this
-    "moderate":     0.50,  # 50/50
-    "aggressive":   0.70,  # 30% confident, higher upside
+    "conservative": 0.25,  # P25 of profitable CPMs
+    "moderate":     0.50,  # Median of profitable CPMs
+    "aggressive":   0.75,  # P75 of profitable CPMs
 }
 
 # Model parameters
