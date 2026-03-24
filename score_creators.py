@@ -76,6 +76,7 @@ def score_batch(input_path, output_path=None):
     # Classifier scores
     conv_prob = clf.predict_proba(X)[:, 1]
     original["conversion_likelihood"] = (conv_prob * 100).round(1)
+    original["low_conversion_flag"] = conv_prob < CLASSIFIER_THRESHOLD
 
     ev = df["expected_views"].values.astype(float)
     name_col = "creator_name" if "creator_name" in df.columns else None
@@ -111,13 +112,14 @@ def score_batch(input_path, output_path=None):
         original.loc[i, "benchmark_segment"] = segment
         original.loc[i, "benchmark_adjustments"] = adjustments
 
+        # Always compute benchmark pricing regardless of conversion likelihood
+        # Low conversion is a flag, not a reason to zero out pricing
         for qname in QUANTILES:
             cpm = bm[qname]
-            if conv_prob[i] >= CLASSIFIER_THRESHOLD:
-                max_price = cpm * (ev[i] / 1000)
-                original.loc[i, f"{qname}_max_cpm"] = round(cpm, 2)
-                original.loc[i, f"{qname}_max_price"] = round(max_price, 2)
-                original.loc[i, f"{qname}_min_iap_needed"] = round(max_price * PROFITABILITY_THRESHOLD, 2)
+            max_price = cpm * (ev[i] / 1000)
+            original.loc[i, f"{qname}_max_cpm"] = round(cpm, 2)
+            original.loc[i, f"{qname}_max_price"] = round(max_price, 2)
+            original.loc[i, f"{qname}_min_iap_needed"] = round(max_price * PROFITABILITY_THRESHOLD, 2)
 
     # Rebooking: blend actual data with benchmark based on confidence
     rebooking_count = 0
@@ -182,8 +184,10 @@ def score_batch(input_path, output_path=None):
         is_rb = row["is_rebooking"]
 
         adj = row.get("benchmark_adjustments", "")
+        low_conv = row.get("low_conversion_flag", False)
         tag = f"★ REBOOKING ({int(row['prior_campaigns'])} prior)" if is_rb else f"NEW [{adj}]"
-        print(f"\n  {label}  |  {tag}  |  Conversion: {conv}%  |  Reach: {reach:,}")
+        flag = "  ⚠ LOW CONVERSION SIGNAL" if low_conv else ""
+        print(f"\n  {label}  |  {tag}  |  Conversion: {conv}%  |  Reach: {reach:,}{flag}")
 
         if is_rb:
             vr = row["hist_view_ratio"]
