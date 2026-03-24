@@ -1,4 +1,4 @@
-"""Dynamic CPM benchmarks segmented by country group and audience gender skew."""
+"""Dynamic CPM benchmarks with reach tier, category, country, and gender adjustments."""
 import numpy as np
 import pandas as pd
 
@@ -26,15 +26,28 @@ def _gender_skew(female_pct):
     return "Female-skewed"
 
 
+def _reach_tier(views):
+    if pd.isna(views) or views <= 0:
+        return "Unknown"
+    if views < 50000:
+        return "<50k"
+    if views < 100000:
+        return "50-100k"
+    if views < 200000:
+        return "100-200k"
+    if views < 500000:
+        return "200-500k"
+    return "500k+"
+
+
 def compute_segmented_benchmarks(df_training):
     """
-    Compute CPM benchmarks segmented by country group × gender skew.
+    Compute CPM benchmarks segmented by:
+      - country group × gender skew (primary segmentation)
+      - reach tier multipliers (applied on top)
+      - category multipliers (applied on top)
 
-    Falls back to broader segments when a specific cross has too few
-    profitable campaigns (< MIN_SEGMENT_SIZE).
-
-    Returns dict of {(country_group, gender_skew): {quantile_name: cpm_value}}.
-    Also includes "global" key as ultimate fallback.
+    Returns dict with segment benchmarks, reach multipliers, and category multipliers.
     """
     cost = pd.to_numeric(df_training.get("campaign_cost_cleaned", 0), errors="coerce")
     rev = df_training[REVENUE_COL]
@@ -47,67 +60,111 @@ def compute_segmented_benchmarks(df_training):
     prof["country_group"] = prof["demographics_main_country"].apply(_country_group)
     fem = pd.to_numeric(prof.get("demographics_female_pct", 0), errors="coerce")
     prof["gender_skew"] = fem.apply(_gender_skew)
+    prof["reach_tier"] = ev[prof.index].apply(_reach_tier)
 
     def _quantiles(series):
         return {name: float(series.quantile(q)) for name, q in QUANTILES.items()}
 
-    benchmarks = {}
+    global_median = float(prof["paid_cpm"].median())
 
-    # Global
-    benchmarks["global"] = _quantiles(prof["paid_cpm"])
-    benchmarks["global"]["count"] = len(prof)
+    # --- Country × gender segment benchmarks ---
+    segments = {}
 
-    # By country group
+    segments["global"] = _quantiles(prof["paid_cpm"])
+    segments["global"]["count"] = len(prof)
+
     for cg in ["US", "Europe", "Other"]:
         sub = prof[prof["country_group"] == cg]
         if len(sub) >= MIN_SEGMENT_SIZE:
-            benchmarks[f"country:{cg}"] = _quantiles(sub["paid_cpm"])
-            benchmarks[f"country:{cg}"]["count"] = len(sub)
+            segments[f"country:{cg}"] = _quantiles(sub["paid_cpm"])
+            segments[f"country:{cg}"]["count"] = len(sub)
 
-    # By gender skew
     for gs in ["Male-skewed", "Balanced", "Female-skewed"]:
         sub = prof[prof["gender_skew"] == gs]
         if len(sub) >= MIN_SEGMENT_SIZE:
-            benchmarks[f"gender:{gs}"] = _quantiles(sub["paid_cpm"])
-            benchmarks[f"gender:{gs}"]["count"] = len(sub)
+            segments[f"gender:{gs}"] = _quantiles(sub["paid_cpm"])
+            segments[f"gender:{gs}"]["count"] = len(sub)
 
-    # Cross: country × gender
     for cg in ["US", "Europe", "Other"]:
         for gs in ["Male-skewed", "Balanced", "Female-skewed"]:
             sub = prof[(prof["country_group"] == cg) & (prof["gender_skew"] == gs)]
             if len(sub) >= MIN_SEGMENT_SIZE:
-                benchmarks[f"{cg}:{gs}"] = _quantiles(sub["paid_cpm"])
-                benchmarks[f"{cg}:{gs}"]["count"] = len(sub)
+                segments[f"{cg}:{gs}"] = _quantiles(sub["paid_cpm"])
+                segments[f"{cg}:{gs}"]["count"] = len(sub)
 
-    return benchmarks
+    # --- Reach tier multipliers ---
+    # Ratio of tier median CPM vs global median CPM
+    reach_multipliers = {}
+    for tier in ["<50k", "50-100k", "100-200k", "200-500k", "500k+"]:
+        sub = prof[prof["reach_tier"] == tier]
+        if len(sub) >= 3:
+            tier_median = float(sub["paid_cpm"].median())
+            reach_multipliers[tier] = tier_median / global_median
+        else:
+            reach_multipliers[tier] = 1.0
+
+    # --- Category multipliers ---
+    category_multipliers = {}
+    for cat in prof["youtube_category_name"].dropna().unique():
+        sub = prof[prof["youtube_category_name"] == cat]
+        if len(sub) >= 3:
+            cat_median = float(sub["paid_cpm"].median())
+            category_multipliers[cat] = cat_median / global_median
+
+    return {
+        "segments": segments,
+        "reach_multipliers": reach_multipliers,
+        "category_multipliers": category_multipliers,
+        "global_median": global_median,
+        "profitable_count": len(prof),
+    }
 
 
-def get_benchmark_for_creator(country, female_pct, benchmarks):
+def get_benchmark_for_creator(country, female_pct, expected_views, category, benchmarks):
     """
-    Look up the best available benchmark for a creator's profile.
+    Look up the best available benchmark for a creator's profile,
+    then apply reach tier and category multipliers.
 
-    Tries most specific (country × gender) first, then falls back to
-    country-only, gender-only, and finally global.
-
-    Returns (benchmark_dict, segment_name).
+    Returns (adjusted_benchmark_dict, segment_name, adjustments_str).
     """
+    segments = benchmarks["segments"]
+    reach_mults = benchmarks["reach_multipliers"]
+    cat_mults = benchmarks["category_multipliers"]
+
     cg = _country_group(country)
     gs = _gender_skew(female_pct)
+    rt = _reach_tier(expected_views)
 
-    # Try most specific first
-    key = f"{cg}:{gs}"
-    if key in benchmarks:
-        return benchmarks[key], key
+    # Find base segment (most specific first)
+    for key in [f"{cg}:{gs}", f"country:{cg}", f"gender:{gs}", "global"]:
+        if key in segments:
+            base = segments[key]
+            seg_name = key
+            break
 
-    # Fall back to country
-    key = f"country:{cg}"
-    if key in benchmarks:
-        return benchmarks[key], key
+    # Apply reach multiplier (dampened: sqrt to avoid overadjusting
+    # since segment CPMs already partially capture these patterns)
+    raw_reach = reach_mults.get(rt, 1.0)
+    reach_mult = 1.0 + (raw_reach - 1.0) * 0.5  # Half-strength
 
-    # Fall back to gender
-    key = f"gender:{gs}"
-    if key in benchmarks:
-        return benchmarks[key], key
+    # Apply category multiplier (dampened similarly)
+    raw_cat = cat_mults.get(category, 1.0) if pd.notna(category) else 1.0
+    cat_mult = 1.0 + (raw_cat - 1.0) * 0.5  # Half-strength
 
-    # Global fallback
-    return benchmarks["global"], "global"
+    combined_mult = reach_mult * cat_mult
+
+    # Adjust base CPMs
+    adjusted = {}
+    for qname in QUANTILES:
+        adjusted[qname] = base[qname] * combined_mult
+    adjusted["count"] = base.get("count", 0)
+
+    # Build adjustments description
+    parts = [seg_name]
+    if abs(reach_mult - 1.0) > 0.01:
+        parts.append(f"reach:{rt}={reach_mult:.2f}x")
+    if abs(cat_mult - 1.0) > 0.01:
+        parts.append(f"cat={cat_mult:.2f}x")
+    adjustments = " | ".join(parts)
+
+    return adjusted, seg_name, adjustments

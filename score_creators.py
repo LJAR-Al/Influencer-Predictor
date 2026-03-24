@@ -87,9 +87,10 @@ def score_batch(input_path, output_path=None):
     original["rebooking_max_cpm"] = np.nan
     original["hist_view_ratio"] = np.nan
 
-    # Dynamic benchmark pricing (segmented by country + gender skew)
-    seg_benchmarks = compute_segmented_benchmarks(df_training)
+    # Dynamic benchmark pricing (segmented by country + gender + reach + category)
+    all_benchmarks = compute_segmented_benchmarks(df_training)
     original["benchmark_segment"] = ""
+    original["benchmark_adjustments"] = ""
 
     for qname in QUANTILES:
         original[f"{qname}_max_cpm"] = 0.0
@@ -99,8 +100,13 @@ def score_batch(input_path, output_path=None):
     for i in range(len(original)):
         country = df.loc[i, "demographics_main_country"] if "demographics_main_country" in df.columns else "Unknown"
         fem_pct = df.loc[i, "demographics_female_pct"] if "demographics_female_pct" in df.columns else 0
-        bm, segment = get_benchmark_for_creator(country, fem_pct, seg_benchmarks)
+        category = df.loc[i, "youtube_category_name"] if "youtube_category_name" in df.columns else "Unknown"
+
+        bm, segment, adjustments = get_benchmark_for_creator(
+            country, fem_pct, ev[i], category, all_benchmarks,
+        )
         original.loc[i, "benchmark_segment"] = segment
+        original.loc[i, "benchmark_adjustments"] = adjustments
 
         for qname in QUANTILES:
             cpm = bm[qname]
@@ -110,7 +116,7 @@ def score_batch(input_path, output_path=None):
                 original.loc[i, f"{qname}_max_price"] = round(max_price, 2)
                 original.loc[i, f"{qname}_min_iap_needed"] = round(max_price * PROFITABILITY_THRESHOLD, 2)
 
-    # Rebooking overrides for returning creators
+    # Rebooking: blend actual data with benchmark based on confidence
     rebooking_count = 0
     for i in range(len(original)):
         if name_col is None:
@@ -119,7 +125,9 @@ def score_batch(input_path, output_path=None):
         if pd.isna(creator_name):
             continue
 
-        result = price_rebooking(creator_name, ev[i], profiles)
+        # Pass moderate benchmark price for blending
+        benchmark_price = original.loc[i, "moderate_max_price"]
+        result = price_rebooking(creator_name, ev[i], profiles, benchmark_max_price=benchmark_price)
         if result is None:
             continue
 
@@ -129,8 +137,8 @@ def score_batch(input_path, output_path=None):
         original.loc[i, "rebooking_conv_rate"] = result["conversion_rate"]
         original.loc[i, "rebooking_appu"] = result["appu"]
         original.loc[i, "rebooking_predicted_iap"] = result["predicted_iap"]
-        original.loc[i, "rebooking_max_price"] = result["max_price"]
-        original.loc[i, "rebooking_max_cpm"] = result["max_cpm"]
+        original.loc[i, "rebooking_max_price"] = result["blended_max_price"]
+        original.loc[i, "rebooking_max_cpm"] = result["blended_max_cpm"]
         original.loc[i, "hist_view_ratio"] = result["avg_view_ratio"]
 
     # Asking price comparison (vs moderate for new, vs rebooking for returning)
@@ -169,15 +177,15 @@ def score_batch(input_path, output_path=None):
         reach = int(row["expected_views"])
         is_rb = row["is_rebooking"]
 
-        seg = row.get("benchmark_segment", "")
-        tag = f"★ REBOOKING ({int(row['prior_campaigns'])} prior)" if is_rb else f"NEW [{seg}]"
+        adj = row.get("benchmark_adjustments", "")
+        tag = f"★ REBOOKING ({int(row['prior_campaigns'])} prior)" if is_rb else f"NEW [{adj}]"
         print(f"\n  {label}  |  {tag}  |  Conversion: {conv}%  |  Reach: {reach:,}")
 
         if is_rb:
             vr = row["hist_view_ratio"]
             vr_label = f"{vr:.0%} of expected" if pd.notna(vr) else "N/A"
             print(f"  Conv rate: {row['rebooking_conv_rate']:.4%}  |  APPU: ${row['rebooking_appu']:.2f}  |  Hist view delivery: {vr_label}")
-            print(f"  Pred IAP: ${row['rebooking_predicted_iap']:,.0f}  |  Max price: ${row['rebooking_max_price']:,.0f}  |  Max CPM: ${row['rebooking_max_cpm']:.2f}")
+            print(f"  Blended max: ${row['rebooking_max_price']:,.0f} (CPM ${row['rebooking_max_cpm']:.2f})  |  Pred IAP: ${row['rebooking_predicted_iap']:,.0f}")
 
         if has_asking and pd.notna(row.get("asking_price")) and row["asking_price"] > 0:
             ask = row["asking_price"]
