@@ -18,9 +18,10 @@ MIN_COST = 1.0
 # Minimum expected views to include (filters out entries with no reach data)
 MIN_EXPECTED_VIEWS = 1
 
-# Minimum margin: predicted revenue must exceed cost by this factor
-# 1.1 = 10% margin requirement
-MIN_MARGIN = 1.1
+# Profitability rule: d7 IAP at day 14 must be >= this fraction of cost
+# 0.10 = campaign is profitable if IAP revenue >= 10% of price paid
+# Therefore: max_price = predicted_iap / PROFITABILITY_THRESHOLD
+PROFITABILITY_THRESHOLD = 0.10
 
 # Pre-campaign features (available before signing a creator)
 PRE_CAMPAIGN_NUMERIC = [

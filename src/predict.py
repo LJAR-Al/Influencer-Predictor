@@ -4,7 +4,7 @@ import pandas as pd
 import joblib
 from pathlib import Path
 
-from src.config import QUANTILES, MIN_MARGIN
+from src.config import QUANTILES, PROFITABILITY_THRESHOLD
 
 MODELS_DIR = Path(__file__).parent.parent / "models"
 
@@ -64,7 +64,7 @@ def score_creator(X, expected_views, models=None):
     rows = []
     for name in quantile_names:
         revenue = raw_revenues[name]
-        max_price = revenue / MIN_MARGIN
+        max_price = revenue / PROFITABILITY_THRESHOLD
         max_cpm = max_price / (ev / 1000)
 
         for i in range(len(X)):
@@ -92,7 +92,7 @@ def format_scorecard(X, expected_views, models=None, creator_name="Creator"):
         f"  {creator_name}",
         f"  Expected Reach: {expected_views:,} views",
         f"  Conversion Likelihood: {conv_pct:.1%}",
-        f"  Min Margin: {(MIN_MARGIN - 1) * 100:.0f}%",
+        f"  Profitability: IAP >= {PROFITABILITY_THRESHOLD:.0%} of price",
         f"  {'─'*60}",
         f"  {'Level':<15} {'Pred IAP Rev':>14} {'Max Price':>12} {'Max CPM':>10}",
         f"  {'─'*60}",

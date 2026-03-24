@@ -13,7 +13,7 @@ from sklearn.ensemble import GradientBoostingRegressor, GradientBoostingClassifi
 import json
 from pathlib import Path
 
-from src.config import QUANTILES, RANDOM_STATE, TEST_SIZE, CV_FOLDS, MIN_MARGIN
+from src.config import QUANTILES, RANDOM_STATE, TEST_SIZE, CV_FOLDS, PROFITABILITY_THRESHOLD
 
 
 def _get_feature_lists(X):
@@ -157,7 +157,7 @@ def train_two_stage_quantile(X, y_log, y_binary):
 
     # Margin safety: at conservative pricing, what % would be profitable?
     # If we set price = conservative_revenue / 1.1, how often is actual_revenue > price?
-    cons_price = cons / MIN_MARGIN
+    cons_price = cons / PROFITABILITY_THRESHOLD
     profitable = (y_test_real > cons_price).mean()
     reg_metrics["conservative_profit_rate"] = float(profitable)
 

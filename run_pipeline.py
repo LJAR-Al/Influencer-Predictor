@@ -6,7 +6,7 @@ import numpy as np
 from src.data import load_raw, clean, build_features
 from src.model import train_two_stage_quantile, get_feature_importance, save_results
 from src.predict import save_models, format_scorecard
-from src.config import QUANTILES, MIN_MARGIN
+from src.config import QUANTILES, PROFITABILITY_THRESHOLD
 
 # 1. Load and clean
 print("Loading data...")
@@ -96,5 +96,5 @@ for i in indices:
     print(f"\n{card}")
     print(f"  Actual IAP revenue: ${actual_rev:,.2f}")
     if actual_rev > 0:
-        actual_max = actual_rev / MIN_MARGIN
-        print(f"  Actual max price (@{(MIN_MARGIN-1)*100:.0f}% margin): ${actual_max:,.2f}")
+        actual_max = actual_rev / PROFITABILITY_THRESHOLD
+        print(f"  Actual max price (IAP >= {PROFITABILITY_THRESHOLD:.0%} of cost): ${actual_max:,.2f}")
