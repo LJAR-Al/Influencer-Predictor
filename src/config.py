@@ -9,8 +9,8 @@ SUPABASE_ANON_KEY = os.getenv("SUPABASE_ANON_KEY", "")
 
 TABLE_NAME = "creatorshub_campaigns_data"
 
-# Revenue metric: IAP (in-app purchases) data
-REVENUE_COL = "d7_user_purchases_by_d14_publish_date"
+# IAP metric: purchases by d7 users measured at day 14 after publish
+IAP_COL = "d7_user_purchases_by_d14_publish_date"
 
 # Minimum cost to include a training row
 MIN_COST = 1.0
@@ -18,8 +18,8 @@ MIN_COST = 1.0
 # Minimum expected views to include (filters out entries with no reach data)
 MIN_EXPECTED_VIEWS = 1
 
-# Profitability rule: d7 IAP at day 14 must be >= this fraction of cost
-# 0.10 = campaign is profitable if IAP revenue >= 10% of price paid
+# Profitability rule: d7 users' IAP at day 14 must be >= this fraction of cost
+# 0.10 = campaign is profitable if IAP >= 10% of price paid
 # Therefore: max_price = predicted_iap / PROFITABILITY_THRESHOLD
 PROFITABILITY_THRESHOLD = 0.10
 

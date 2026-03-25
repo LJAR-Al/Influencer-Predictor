@@ -14,7 +14,7 @@ from pathlib import Path
 
 from src.config import (
     QUANTILES, RANDOM_STATE, TEST_SIZE, CV_FOLDS,
-    PROFITABILITY_THRESHOLD, REVENUE_COL,
+    PROFITABILITY_THRESHOLD, IAP_COL,
 )
 
 
@@ -47,10 +47,10 @@ def _build_classifier(num_feats, cat_feats):
 def compute_profitable_benchmarks(df_model):
     """
     Compute CPM benchmarks from historically profitable campaigns.
-    Profitable = IAP revenue >= 10% of cost paid.
+    Profitable = d7 users' IAP at day 14 >= 10% of cost paid.
     """
     cost = pd.to_numeric(df_model.get("campaign_cost_cleaned", 0), errors="coerce")
-    rev = df_model[REVENUE_COL]
+    rev = df_model[IAP_COL]
     ev = pd.to_numeric(df_model.get("expected_views", 0), errors="coerce")
     roi = rev / cost
 

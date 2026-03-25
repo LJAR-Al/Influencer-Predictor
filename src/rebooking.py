@@ -2,7 +2,7 @@
 import numpy as np
 import pandas as pd
 
-from src.config import REVENUE_COL, PROFITABILITY_THRESHOLD
+from src.config import IAP_COL, PROFITABILITY_THRESHOLD
 
 
 # Confidence weight for rebooking data based on number of prior campaigns.
@@ -24,7 +24,7 @@ def build_creator_profiles(df_training):
     conv_rate_per_view × new_expected_views is the correct normalization.
     """
     cost = pd.to_numeric(df_training.get("campaign_cost_cleaned", 0), errors="coerce")
-    rev = df_training[REVENUE_COL]
+    rev = df_training[IAP_COL]
     ev = pd.to_numeric(df_training.get("expected_views", 0), errors="coerce")
     vc = pd.to_numeric(df_training.get("view_count", 0), errors="coerce")
     signups = pd.to_numeric(df_training.get("total_signups", 0), errors="coerce")

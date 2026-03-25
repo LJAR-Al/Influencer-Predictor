@@ -8,7 +8,7 @@ from pathlib import Path
 
 from src.config import (
     SUPABASE_URL, SUPABASE_ANON_KEY, TABLE_NAME,
-    REVENUE_COL, MIN_COST, MIN_EXPECTED_VIEWS,
+    IAP_COL, MIN_COST, MIN_EXPECTED_VIEWS,
     PRE_CAMPAIGN_NUMERIC, PRE_CAMPAIGN_CATEGORICAL,
 )
 
@@ -80,7 +80,7 @@ def clean(df):
 
     # Cast numeric columns
     numeric_cast = [
-        REVENUE_COL, "campaign_cost_cleaned",
+        IAP_COL, "campaign_cost_cleaned",
         "expected_views", "expected_cpm",
         "view_count", "youtube_like_count", "youtube_comment_count",
         "youtube_duration_ss",
@@ -110,8 +110,8 @@ def _add_creator_history(df):
     df = df.sort_values("published_at").reset_index(drop=True)
 
     df["creator_prior_campaigns"] = 0
-    df["creator_avg_revenue"] = np.nan
-    df["creator_avg_rev_per_1k_views"] = np.nan
+    df["creator_avg_iap"] = np.nan
+    df["creator_avg_iap_per_1k_views"] = np.nan
 
     for idx in df.index:
         cid = df.loc[idx, "creator_id"]
@@ -123,17 +123,17 @@ def _add_creator_history(df):
         if len(prior) == 0:
             continue
 
-        prior_rev = prior[REVENUE_COL].dropna()
+        prior_rev = prior[IAP_COL].dropna()
         if len(prior_rev) == 0:
             continue
 
         df.loc[idx, "creator_prior_campaigns"] = len(prior_rev)
-        df.loc[idx, "creator_avg_revenue"] = prior_rev.mean()
+        df.loc[idx, "creator_avg_iap"] = prior_rev.mean()
 
         prior_ev = prior["expected_views"].replace(0, np.nan)
-        rev_per_1k = (prior[REVENUE_COL] / prior_ev * 1000).dropna()
+        rev_per_1k = (prior[IAP_COL] / prior_ev * 1000).dropna()
         if len(rev_per_1k) > 0:
-            df.loc[idx, "creator_avg_rev_per_1k_views"] = rev_per_1k.mean()
+            df.loc[idx, "creator_avg_iap_per_1k_views"] = rev_per_1k.mean()
 
     return df
 
@@ -143,26 +143,26 @@ def build_features(df):
     Build feature matrix and targets for the pricing model.
 
     Features: pre-campaign data only (demographics, reach, CPM, category, platform)
-    Targets: binary conversion + log IAP revenue
+    Targets: binary conversion + log IAP (d7 users at d14)
     """
     df = df.copy()
 
-    # Filter: need valid cost, revenue, and expected views
+    # Filter: need valid cost, IAP, and expected views
     cost = pd.to_numeric(df.get("campaign_cost_cleaned", 0), errors="coerce")
-    revenue = df[REVENUE_COL]
+    iap = df[IAP_COL]
     ev = df["expected_views"]
-    mask = (cost >= MIN_COST) & revenue.notna() & (ev >= MIN_EXPECTED_VIEWS)
+    mask = (cost >= MIN_COST) & iap.notna() & (ev >= MIN_EXPECTED_VIEWS)
     df = df[mask].copy()
 
-    # Cap revenue outliers at 99th percentile
-    rev_cap = df[REVENUE_COL].quantile(0.99)
-    df[REVENUE_COL] = df[REVENUE_COL].clip(upper=rev_cap)
+    # Cap IAP outliers at 99th percentile
+    rev_cap = df[IAP_COL].quantile(0.99)
+    df[IAP_COL] = df[IAP_COL].clip(upper=rev_cap)
 
     # Binary conversion label (for two-stage model)
-    df["converted"] = (df[REVENUE_COL] > 0).astype(int)
+    df["converted"] = (df[IAP_COL] > 0).astype(int)
 
-    # Log-transformed revenue target
-    df["log_revenue"] = np.log1p(df[REVENUE_COL])
+    # Log-transformed IAP target
+    df["log_iap"] = np.log1p(df[IAP_COL])
 
     # Add creator history (leak-free)
     df = _add_creator_history(df)
@@ -170,15 +170,15 @@ def build_features(df):
     # Assemble features
     history_numeric = [
         "creator_prior_campaigns",
-        "creator_avg_revenue",
-        "creator_avg_rev_per_1k_views",
+        "creator_avg_iap",
+        "creator_avg_iap_per_1k_views",
     ]
     all_numeric = PRE_CAMPAIGN_NUMERIC + history_numeric
     all_features = all_numeric + PRE_CAMPAIGN_CATEGORICAL
     existing = [c for c in all_features if c in df.columns]
 
     X = df[existing].copy()
-    y_log = df["log_revenue"].copy()
+    y_log = df["log_iap"].copy()
     y_binary = df["converted"].copy()
 
     # Fill missing numerics with median

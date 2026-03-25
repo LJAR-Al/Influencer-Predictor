@@ -2,7 +2,7 @@
 import numpy as np
 import pandas as pd
 
-from src.config import REVENUE_COL, PROFITABILITY_THRESHOLD, QUANTILES
+from src.config import IAP_COL, PROFITABILITY_THRESHOLD, QUANTILES
 
 # Minimum segment size — fall back to parent segment if too few samples
 MIN_SEGMENT_SIZE = 5
@@ -50,7 +50,7 @@ def compute_segmented_benchmarks(df_training):
     Returns dict with segment benchmarks, reach multipliers, and category multipliers.
     """
     cost = pd.to_numeric(df_training.get("campaign_cost_cleaned", 0), errors="coerce")
-    rev = df_training[REVENUE_COL]
+    rev = df_training[IAP_COL]
     ev = pd.to_numeric(df_training.get("expected_views", 0), errors="coerce")
     roi = rev / cost
 

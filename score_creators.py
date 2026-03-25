@@ -65,11 +65,11 @@ def score_batch(input_path, output_path=None):
 
     # Creator history columns
     df["creator_prior_campaigns"] = 0
-    df["creator_avg_revenue"] = 0.0
-    df["creator_avg_rev_per_1k_views"] = 0.0
+    df["creator_avg_iap"] = 0.0
+    df["creator_avg_iap_per_1k_views"] = 0.0
 
     feature_cols = PRE_CAMPAIGN_NUMERIC + [
-        "creator_prior_campaigns", "creator_avg_revenue", "creator_avg_rev_per_1k_views",
+        "creator_prior_campaigns", "creator_avg_iap", "creator_avg_iap_per_1k_views",
     ] + PRE_CAMPAIGN_CATEGORICAL
     X = df[[c for c in feature_cols if c in df.columns]]
 
