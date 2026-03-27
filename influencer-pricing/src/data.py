@@ -10,6 +10,7 @@ from src.config import (
     SUPABASE_URL, SUPABASE_ANON_KEY, TABLE_NAME,
     IAP_COL, MIN_COST, MIN_EXPECTED_VIEWS,
     PRE_CAMPAIGN_NUMERIC, PRE_CAMPAIGN_CATEGORICAL,
+    PLATFORM_FILTER,
 )
 
 DATA_DIR = Path(__file__).parent.parent / "data"
@@ -146,6 +147,10 @@ def build_features(df):
     Targets: binary conversion + log IAP (d7 users at d14)
     """
     df = df.copy()
+
+    # Filter to YouTube only
+    if PLATFORM_FILTER and "posting_platform" in df.columns:
+        df = df[df["posting_platform"] == PLATFORM_FILTER].copy()
 
     # Filter: need valid cost, IAP, and expected views
     cost = pd.to_numeric(df.get("campaign_cost_cleaned", 0), errors="coerce")

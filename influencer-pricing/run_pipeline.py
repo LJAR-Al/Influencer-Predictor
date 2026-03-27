@@ -13,6 +13,8 @@ print("Loading data...")
 df_raw = load_raw()
 df = clean(df_raw)
 print(f"  Raw rows: {len(df_raw)}")
+if "posting_platform" in df.columns:
+    print(f"  Platform split: {df['posting_platform'].value_counts().to_dict()}")
 
 # 2. Build features
 print("Building features...")

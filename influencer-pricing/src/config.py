@@ -33,10 +33,12 @@ PRE_CAMPAIGN_NUMERIC = [
 ]
 
 PRE_CAMPAIGN_CATEGORICAL = [
-    "posting_platform",
     "youtube_category_name",
     "demographics_main_country",
 ]
+
+# Only train/score on YouTube data — Instagram has different CPM dynamics
+PLATFORM_FILTER = "Youtube"
 
 # Quantile levels for price ranges
 # These are applied to the profitable campaign CPM distribution

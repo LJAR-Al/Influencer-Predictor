@@ -12,7 +12,6 @@ Input CSV columns (required):
 
 Input CSV columns (optional but recommended):
     - expected_cpm             Pre-campaign CPM estimate
-    - posting_platform         Youtube / Instagram / Tiktok
     - youtube_category_name    Entertainment, Gaming, Education, etc.
     - demographics_main_country  US, UK, DE, FR, etc.
     - creator_name             For display only
@@ -31,6 +30,7 @@ import pandas as pd
 from src.config import (
     QUANTILES, PROFITABILITY_THRESHOLD, PRE_CAMPAIGN_NUMERIC, PRE_CAMPAIGN_CATEGORICAL,
     CLASSIFIER_THRESHOLD, DEFAULT_NEW_LEVEL, DEFAULT_REBOOKING_LEVEL,
+    PLATFORM_FILTER,
 )
 from src.predict import load_models
 from src.rebooking import build_creator_profiles, price_rebooking
@@ -41,8 +41,10 @@ from src.data import load_raw, clean
 def score_batch(input_path, output_path=None):
     clf, benchmarks = load_models()
 
-    # Load training data for rebooking profiles
+    # Load training data for rebooking profiles (YouTube only)
     df_training = clean(load_raw())
+    if PLATFORM_FILTER and "posting_platform" in df_training.columns:
+        df_training = df_training[df_training["posting_platform"] == PLATFORM_FILTER].copy()
     profiles = build_creator_profiles(df_training)
 
     df = pd.read_csv(input_path)
