@@ -22,14 +22,14 @@ build/
 *.h5
 *.hdf5
 *.json
-!results/metrics.json
-data/raw/
-data/processed/
+!influencer-pricing/results/metrics.json
+influencer-pricing/data/raw/
+influencer-pricing/data/processed/
 
 # Model artifacts
-models/*.pkl
-models/*.h5
-models/*.joblib
+influencer-pricing/models/*.pkl
+influencer-pricing/models/*.h5
+influencer-pricing/models/*.joblib
 *.onnx
 
 # Environment & secrets
@@ -52,5 +52,6 @@ Thumbs.db
 *.log
 logs/
 
-# Separate project
-fraud-guardian-console/
+# Fraud guardian console dependencies & build
+fraud-guardian-console/node_modules/
+fraud-guardian-console/dist/
