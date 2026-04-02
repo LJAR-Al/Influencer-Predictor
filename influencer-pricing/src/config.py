@@ -63,3 +63,54 @@ CLASSIFIER_THRESHOLD = 0.3
 # - Rebookings: aggressive benchmark (P75 CPM) — more confidence from real data
 DEFAULT_NEW_LEVEL = "moderate"
 DEFAULT_REBOOKING_LEVEL = "aggressive"
+
+# ── Layer 1: Pre-screening ──
+
+# Countries where APPU is too low to justify spending — auto-skip
+LOW_IAP_COUNTRIES = ["PH", "IN", "BD", "PK", "NG", "EG", "ID", "VN", "KE"]
+LOW_IAP_COUNTRY_THRESHOLD = 0.30  # Skip if this % or more of audience is from low-IAP countries
+
+# Sub-to-view ratio: flag if views are suspiciously high relative to subscribers
+# (e.g. 500k avg views on a 50k sub channel → ratio = 10, very suspicious)
+SUSPICIOUS_VIEW_RATIO = 5.0  # views / subs — flag above this
+
+# ── V2 Model: Signup Rate + APPU Weights ──
+
+PLAYBOOK_TABLE = "video_playbook_results"
+
+# Qualitative features from video playbook (assessable pre-campaign)
+PLAYBOOK_FEATURES = [
+    "content_category",
+    "tone_of_speech_gn",
+    "fc_creator_enthusiasm_level",
+    "hook_category",
+    "integration_level",
+    "sponsor_placement",
+    "audience_product_fit",
+]
+
+# Geo tier definitions for APPU weighting
+TIER_1_COUNTRIES = ["US", "DE", "GB", "CA", "AU", "NL", "CH", "AT", "SE"]
+TIER_2_COUNTRIES = ["FR", "PL", "IT", "KR", "JP", "BE", "ES", "NO", "DK"]
+
+# Signup rate model hyperparameters
+SIGNUP_MODEL_PARAMS = {
+    "n_estimators": 150,
+    "max_depth": 3,
+    "learning_rate": 0.1,
+    "subsample": 0.8,
+    "random_state": RANDOM_STATE,
+}
+
+# Demographic columns in campaign data
+DEMO_AGE_COLS = {
+    "calc_pct_age_16_20": "FROM_16_TO_20",
+    "calc_pct_age_21_29": "FROM_21_TO_29",
+    "calc_pct_age_30_49": "FROM_30_TO_49",
+    "calc_pct_age_50plus": "FROM_50",
+}
+DEMO_GENDER_COLS = {
+    "calc_pct_gender_female": "FEMALE",
+    "calc_pct_gender_male": "MALE",
+}
+DEMO_TIER_COLS = ["calc_pct_tier_1", "calc_pct_tier_2", "calc_pct_tier_3", "calc_pct_tier_other"]

@@ -10,7 +10,8 @@ from src.config import (
     SUPABASE_URL, SUPABASE_ANON_KEY, TABLE_NAME,
     IAP_COL, MIN_COST, MIN_EXPECTED_VIEWS,
     PRE_CAMPAIGN_NUMERIC, PRE_CAMPAIGN_CATEGORICAL,
-    PLATFORM_FILTER,
+    PLATFORM_FILTER, PLAYBOOK_TABLE, PLAYBOOK_FEATURES,
+    DEMO_AGE_COLS, DEMO_GENDER_COLS,
 )
 
 DATA_DIR = Path(__file__).parent.parent / "data"
@@ -197,3 +198,97 @@ def build_features(df):
             X[col] = X[col].fillna("Unknown")
 
     return X, y_log, y_binary, df
+
+
+# ── V2: Playbook data loading and signup-rate feature building ──
+
+def fetch_playbook_from_supabase(save=True):
+    """Pull all rows from video_playbook_results table."""
+    url = f"{SUPABASE_URL}/rest/v1/{PLAYBOOK_TABLE}"
+    headers = {
+        "apikey": SUPABASE_ANON_KEY,
+        "Authorization": f"Bearer {SUPABASE_ANON_KEY}",
+    }
+    all_rows = []
+    offset = 0
+    batch = 1000
+    while True:
+        r = requests.get(
+            f"{url}?limit={batch}&offset={offset}&data_status=eq.analyzed",
+            headers=headers,
+        )
+        r.raise_for_status()
+        data = r.json()
+        if not isinstance(data, list) or len(data) == 0:
+            break
+        all_rows.extend(data)
+        if len(data) < batch:
+            break
+        offset += batch
+
+    if save:
+        DATA_DIR.mkdir(exist_ok=True)
+        with open(DATA_DIR / "raw_playbook.json", "w") as f:
+            json.dump(all_rows, f)
+
+    return pd.DataFrame(all_rows)
+
+
+def load_playbook(path=None):
+    """Load playbook JSON from disk."""
+    path = path or DATA_DIR / "raw_playbook.json"
+    with open(path) as f:
+        return pd.DataFrame(json.load(f))
+
+
+def build_signup_features(df_campaigns, df_playbook):
+    """
+    Join campaigns with playbook data and build features for signup-rate model.
+
+    Returns: X (playbook features), y (log signup rate), df_joined (full joined data)
+    """
+    df_c = df_campaigns.copy()
+    df_p = df_playbook.copy()
+
+    # Filter to YouTube
+    if PLATFORM_FILTER and "posting_platform" in df_c.columns:
+        df_c = df_c[df_c["posting_platform"] == PLATFORM_FILTER].copy()
+
+    # Cast numeric columns needed for joining/filtering
+    for col in ["campaign_cost_cleaned", "expected_views", "view_count",
+                 "total_signups", IAP_COL] + list(DEMO_AGE_COLS.keys()) + list(DEMO_GENDER_COLS.keys()):
+        if col in df_c.columns:
+            df_c[col] = pd.to_numeric(df_c[col], errors="coerce")
+
+    # Join on youtube_video_id
+    df_joined = df_c.merge(
+        df_p[["youtube_video_id"] + PLAYBOOK_FEATURES],
+        on="youtube_video_id",
+        how="inner",
+    )
+
+    # Filter: need cost, views, and demographic data
+    mask = (
+        (df_joined["campaign_cost_cleaned"] > 0)
+        & (df_joined["expected_views"] > 0)
+        & (df_joined["view_count"] > 0)
+        & (df_joined["total_signups"] >= 0)
+        & (
+            (df_joined.get("calc_pct_age_16_20", 0) > 0)
+            | (df_joined.get("calc_pct_age_21_29", 0) > 0)
+        )
+    )
+    df_joined = df_joined[mask].copy()
+
+    # Compute target
+    df_joined["signup_rate"] = df_joined["total_signups"] / df_joined["view_count"]
+    df_joined["log_signup_rate"] = np.log1p(df_joined["signup_rate"])
+
+    # Build feature matrix
+    X = df_joined[PLAYBOOK_FEATURES].copy()
+    for col in PLAYBOOK_FEATURES:
+        X[col] = X[col].fillna("Unknown")
+
+    y = df_joined["log_signup_rate"]
+
+    return X, y, df_joined

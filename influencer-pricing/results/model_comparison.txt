@@ -1,0 +1,184 @@
+====================================================================================================
+  MODEL COMPARISON: V1 Benchmark vs V2 APPU-Weighted
+  Test set: 6 real YouTube campaigns with known outcomes
+====================================================================================================
+
+────────────────────────────────────────────────────────────────────────────────────────────────────
+  Original Paradigms
+  Expected: 65,000 views  |  Pitched CPM: $28.85  |  Pitched Total: $1,875
+  Country: US  |  Female: 0%  |  Age 30-49: 50%  |  Tier 1: 100%
+  Content: Entertainment  |  Tone: serious  |  Energy: medium  |  Fit: high
+────────────────────────────────────────────────────────────────────────────────────────────────────
+  ACTUAL OUTCOME:
+    Cost: $     1,875  |  IAP: $     36.92  |  ROI: 2.0%  |  NOT PROFITABLE
+    Views:     19,628  |  Signups:      6  |  SR: 0.0306%
+
+  V1: CLASSIFIER + DYNAMIC BENCHMARKS
+    Conversion Prob: 49.3%  |  Segment: US:Male-skewed  |  Adjustments: US:Male-skewed | reach:50-100k=1.07x | cat=0.98x
+    Level              Max CPM    Max Price   vs Pitched    vs Actual
+    conservative    $   24.11 $     1,567       PASS       PASS
+    moderate        $   32.37 $     2,104       BOOK       BOOK
+    aggressive      $   46.34 $     3,012       BOOK       BOOK
+
+  V2: SIGNUP RATE + APPU WEIGHTS
+    Predicted SR: 0.0706%  |  Weighted APPU: $12.67
+    Projected Signups: 46  |  Projected IAP: $581.09
+    Max Price: $     5,811  |  Breakeven CPM: $   89.40
+    vs Pitched ($1,875): BOOK  |  vs Actual Cost ($1,875): BOOK
+
+  VERDICT COMPARISON:
+    V1 Moderate:      BOOK → FALSE POSITIVE
+    V1 Aggressive:    BOOK → FALSE POSITIVE
+    V2 APPU:          BOOK → FALSE POSITIVE
+
+────────────────────────────────────────────────────────────────────────────────────────────────────
+  Scandalous Media
+  Expected: 93,180 views  |  Pitched CPM: $32.20  |  Pitched Total: $3,000
+  Country: US  |  Female: 92%  |  Age 30-49: 24%  |  Tier 1: 30%
+  Content: Reaction  |  Tone: comedic  |  Energy: medium  |  Fit: medium
+────────────────────────────────────────────────────────────────────────────────────────────────────
+  ACTUAL OUTCOME:
+    Cost: $     3,000  |  IAP: $    109.13  |  ROI: 3.6%  |  NOT PROFITABLE
+    Views:    201,709  |  Signups:     37  |  SR: 0.0183%
+
+  V1: CLASSIFIER + DYNAMIC BENCHMARKS
+    Conversion Prob: 99.3%  |  Segment: US:Female-skewed  |  Adjustments: US:Female-skewed | reach:50-100k=1.07x | cat=0.98x
+    Level              Max CPM    Max Price   vs Pitched    vs Actual
+    conservative    $   26.30 $     2,451       PASS       PASS
+    moderate        $   30.55 $     2,846       PASS       PASS
+    aggressive      $   42.08 $     3,921       BOOK       BOOK
+
+  V2: SIGNUP RATE + APPU WEIGHTS
+    Predicted SR: 0.0430%  |  Weighted APPU: $10.36
+    Projected Signups: 40  |  Projected IAP: $414.83
+    Max Price: $     4,148  |  Breakeven CPM: $   44.52
+    vs Pitched ($3,000): BOOK  |  vs Actual Cost ($3,000): BOOK
+
+  VERDICT COMPARISON:
+    V1 Moderate:      PASS → CORRECT PASS
+    V1 Aggressive:    BOOK → FALSE POSITIVE
+    V2 APPU:          BOOK → FALSE POSITIVE
+
+────────────────────────────────────────────────────────────────────────────────────────────────────
+  Wanderlust Alley
+  Expected: 67,500 views  |  Pitched CPM: $64.81  |  Pitched Total: $4,375
+  Country: US  |  Female: 24%  |  Age 30-49: 53%  |  Tier 1: 58%
+  Content: Lifestyle  |  Tone: casual  |  Energy: medium  |  Fit: high
+────────────────────────────────────────────────────────────────────────────────────────────────────
+  ACTUAL OUTCOME:
+    Cost: $     4,375  |  IAP: $    526.94  |  ROI: 12.0%  |  PROFITABLE
+    Views:     29,279  |  Signups:     74  |  SR: 0.2527%
+
+  V1: CLASSIFIER + DYNAMIC BENCHMARKS
+    Conversion Prob: 99.2%  |  Segment: US:Male-skewed  |  Adjustments: US:Male-skewed | reach:50-100k=1.07x
+    Level              Max CPM    Max Price   vs Pitched    vs Actual
+    conservative    $   24.62 $     1,662       PASS       PASS
+    moderate        $   33.06 $     2,232       PASS       PASS
+    aggressive      $   47.33 $     3,195       PASS       PASS
+
+  V2: SIGNUP RATE + APPU WEIGHTS
+    Predicted SR: 0.3841%  |  Weighted APPU: $14.04
+    Projected Signups: 259  |  Projected IAP: $3,640.32
+    Max Price: $    36,403  |  Breakeven CPM: $  539.31
+    vs Pitched ($4,375): BOOK  |  vs Actual Cost ($4,375): BOOK
+
+  VERDICT COMPARISON:
+    V1 Moderate:      PASS → MISSED
+    V1 Aggressive:    PASS → MISSED
+    V2 APPU:          BOOK → TRUE POSITIVE
+
+────────────────────────────────────────────────────────────────────────────────────────────────────
+  Kyle Hates Hiking
+  Expected: 350,000 views  |  Pitched CPM: $34.29  |  Pitched Total: $12,002
+  Country: US  |  Female: 48%  |  Age 30-49: 49%  |  Tier 1: 75%
+  Content: News  |  Tone: storytelling  |  Energy: medium  |  Fit: medium
+────────────────────────────────────────────────────────────────────────────────────────────────────
+  ACTUAL OUTCOME:
+    Cost: $    12,000  |  IAP: $  5,358.76  |  ROI: 44.7%  |  PROFITABLE
+    Views:    769,676  |  Signups:    631  |  SR: 0.0820%
+
+  V1: CLASSIFIER + DYNAMIC BENCHMARKS
+    Conversion Prob: 99.1%  |  Segment: US:Balanced  |  Adjustments: US:Balanced | cat=1.07x
+    Level              Max CPM    Max Price   vs Pitched    vs Actual
+    conservative    $   26.39 $     9,237       PASS       PASS
+    moderate        $   34.78 $    12,172       BOOK       BOOK
+    aggressive      $   45.48 $    15,917       BOOK       BOOK
+
+  V2: SIGNUP RATE + APPU WEIGHTS
+    Predicted SR: 0.1484%  |  Weighted APPU: $18.51
+    Projected Signups: 519  |  Projected IAP: $9,614.75
+    Max Price: $    96,148  |  Breakeven CPM: $  274.71
+    vs Pitched ($12,002): BOOK  |  vs Actual Cost ($12,000): BOOK
+
+  VERDICT COMPARISON:
+    V1 Moderate:      BOOK → TRUE POSITIVE
+    V1 Aggressive:    BOOK → TRUE POSITIVE
+    V2 APPU:          BOOK → TRUE POSITIVE
+
+────────────────────────────────────────────────────────────────────────────────────────────────────
+  The Villains
+  Expected: 500,000 views  |  Pitched CPM: $11.00  |  Pitched Total: $5,500
+  Country: US  |  Female: 65%  |  Age 30-49: 36%  |  Tier 1: 86%
+  Content: News  |  Tone: serious  |  Energy: medium  |  Fit: medium
+────────────────────────────────────────────────────────────────────────────────────────────────────
+  ACTUAL OUTCOME:
+    Cost: $     5,500  |  IAP: $      7.98  |  ROI: 0.1%  |  NOT PROFITABLE
+    Views:    687,483  |  Signups:     69  |  SR: 0.0100%
+
+  V1: CLASSIFIER + DYNAMIC BENCHMARKS
+    Conversion Prob: 97.7%  |  Segment: US:Female-skewed  |  Adjustments: US:Female-skewed | reach:500k+=0.70x | cat=0.81x
+    Level              Max CPM    Max Price   vs Pitched    vs Actual
+    conservative    $   14.05 $     7,023       BOOK       BOOK
+    moderate        $   16.31 $     8,156       BOOK       BOOK
+    aggressive      $   22.47 $    11,237       BOOK       BOOK
+
+  V2: SIGNUP RATE + APPU WEIGHTS
+    Predicted SR: 0.0871%  |  Weighted APPU: $20.39
+    Projected Signups: 436  |  Projected IAP: $8,884.20
+    Max Price: $    88,842  |  Breakeven CPM: $  177.68
+    vs Pitched ($5,500): BOOK  |  vs Actual Cost ($5,500): BOOK
+
+  VERDICT COMPARISON:
+    V1 Moderate:      BOOK → FALSE POSITIVE
+    V1 Aggressive:    BOOK → FALSE POSITIVE
+    V2 APPU:          BOOK → FALSE POSITIVE
+
+────────────────────────────────────────────────────────────────────────────────────────────────────
+  Detailer
+  Expected: 80,000 views  |  Pitched CPM: $6.25  |  Pitched Total: $500
+  Country: PL  |  Female: 3%  |  Age 30-49: 10%  |  Tier 1: 0%
+  Content: Entertainment  |  Tone: comedic  |  Energy: medium  |  Fit: high
+────────────────────────────────────────────────────────────────────────────────────────────────────
+  ACTUAL OUTCOME:
+    Cost: $       500  |  IAP: $    670.53  |  ROI: 134.1%  |  PROFITABLE
+    Views:    131,960  |  Signups:    992  |  SR: 0.7517%
+
+  V1: CLASSIFIER + DYNAMIC BENCHMARKS
+    Conversion Prob: 93.6%  |  Segment: Europe:Male-skewed  |  Adjustments: Europe:Male-skewed | reach:50-100k=1.07x | cat=0.98x
+    Level              Max CPM    Max Price   vs Pitched    vs Actual
+    conservative    $   18.55 $     1,484       BOOK       BOOK
+    moderate        $   27.40 $     2,192       BOOK       BOOK
+    aggressive      $   36.92 $     2,953       BOOK       BOOK
+
+  V2: SIGNUP RATE + APPU WEIGHTS
+    Predicted SR: 0.3177%  |  Weighted APPU: $0.13
+    Projected Signups: 254  |  Projected IAP: $33.75
+    Max Price: $       338  |  Breakeven CPM: $    4.22
+    vs Pitched ($500): PASS  |  vs Actual Cost ($500): PASS
+
+  VERDICT COMPARISON:
+    V1 Moderate:      BOOK → TRUE POSITIVE
+    V1 Aggressive:    BOOK → TRUE POSITIVE
+    V2 APPU:          PASS → MISSED
+
+====================================================================================================
+  SUMMARY: BOOKING DECISIONS vs ACTUAL OUTCOMES
+====================================================================================================
+  Creator                  Actual     Cost        IAP      V1 Mod     V1 Agg    V2 APPU          Best
+  ──────────────────────────────────────────────────────────────────────────────────────────────────
+  Original Paradigms       BAD $ 1,875 $      37  $   2,104(  FP) $   3,012(  FP) $   5,811(  FP)    TIE
+  Scandalous Media         BAD $ 3,000 $     109  $   2,846(  OK) $   3,921(  FP) $   4,148(  FP)    TIE
+  Wanderlust Alley          OK $ 4,375 $     527  $   2,232(MISS) $   3,195(MISS) $  36,403(  TP)     V2
+  Kyle Hates Hiking         OK $12,000 $   5,359  $  12,172(  TP) $  15,917(  TP) $  96,148(  TP)    TIE
+  The Villains             BAD $ 5,500 $       8  $   8,156(  FP) $  11,237(  FP) $  88,842(  FP)    TIE
+  Detailer                  OK $   500 $     671  $   2,192(  TP) $   2,953(  TP) $     338(MISS)     V1

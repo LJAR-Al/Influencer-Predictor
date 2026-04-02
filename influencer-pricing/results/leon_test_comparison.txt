@@ -1,0 +1,751 @@
+======================================================================================================================================================
+  LEON'S TEST DATA — MODEL COMPARISON (452 creators)
+  V1 = Classifier + Dynamic CPM Benchmarks  |  V2 = Signup Rate + APPU Weights (default playbook)
+======================================================================================================================================================
+
+  Creator                       Views   Pitched     V1 Con    V1 Mod    V1 Agg     V2 Max    APPU   V1   V2
+  ────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+  imuRgency                    70,000    $5,000  $      0 $      0 $      0  $ 19,219 $  9.81 PASS BOOK
+  Rationality Rules           400,000    $8,500  $  9,216 $ 12,373 $ 17,713  $ 94,113 $  8.40 BOOK BOOK
+  Slow Start                  200,000    $5,500  $  4,608 $  6,187 $  8,857  $ 56,240 $ 10.04 BOOK BOOK
+  whirow                      330,000            $  7,603 $ 10,208 $ 14,613  $ 63,121 $  6.83          
+  Laith                        40,000    $2,500  $  1,017 $  1,366 $  1,956  $  6,685 $  5.97 PASS BOOK
+  Tranium                     400,000   $10,000  $  9,216 $ 12,373 $ 17,713  $ 82,910 $  7.40 BOOK BOOK
+  amandamaryanna              150,000    $4,500  $      0 $      0 $      0  $ 43,185 $ 10.28 PASS BOOK
+  TheGamerFromMars            150,000    $5,500  $  3,166 $  4,251 $  6,086  $ 41,813 $  9.96 BOOK BOOK
+  NK's Wrld
+                  180,000    $6,000  $  4,145 $  4,814 $  6,632  $ 51,866 $ 10.29 BOOK BOOK
+  Wonny                       300,000    $9,000  $      0 $      0 $      0  $ 68,036 $  8.10 PASS BOOK
+  True Geordie                300,000    $9,000  $  6,912 $  9,280 $ 13,285  $ 88,646 $ 10.56 BOOK BOOK
+  Hockey Psychology           300,000    $7,200  $  6,912 $  9,280 $ 13,285  $ 70,404 $  8.38 BOOK BOOK
+  mattyballz                  300,000    $7,200  $  6,912 $  9,280 $ 13,285  $ 83,950 $ 10.00 BOOK BOOK
+  UpIsNotJump                 500,000            $  7,975 $ 10,708 $ 15,329  $ 90,382 $  6.46          
+  Lost in the Pond            200,000    $6,000  $  4,608 $  6,187 $  8,857  $ 70,227 $ 12.54 BOOK BOOK
+  Dark Asia with Megan        400,000    $9,000  $      0 $      0 $      0  $122,582 $ 10.95 PASS BOOK
+  NationSquid                  80,000    $3,800  $  1,970 $  2,645 $  3,786  $ 20,769 $  9.27 PASS BOOK
+  Daniel Li                   100,000    $2,500  $  2,111 $  2,834 $  4,057  $ 23,487 $  8.39 BOOK BOOK
+  Erika Angel                  30,000    $5,000  $    832 $    967 $  1,332  $ 14,577 $ 17.36 PASS BOOK
+  Michael Girdley             150,000    $3,500  $  3,166 $  4,251 $  6,086  $ 55,338 $ 13.18 BOOK BOOK
+  The Pain Game               120,000    $8,000  $  2,533 $  3,401 $  4,869  $ 25,708 $  7.65 PASS BOOK
+  Ohmeezzy                     60,000    $2,200  $      0 $      0 $      0  $ 20,188 $ 12.02 PASS BOOK
+  Book of Valis                70,000            $  1,724 $  2,314 $  3,313  $ 22,215 $ 11.34          
+  Volksgeist                  700,000   $23,000  $      0 $      0 $      0  $192,324 $  9.81 PASS BOOK
+  The Misery Machine          150,000    $4,400  $      0 $      0 $      0  $ 65,982 $ 15.71 PASS BOOK
+  Triggernometry              400,000    $9,000  $  9,216 $ 12,373 $ 17,713  $ 81,117 $  7.24 BOOK BOOK
+  Filmento                    300,000    $5,000  $  6,912 $  9,280 $ 13,285  $ 72,210 $  8.60 BOOK BOOK
+  Jesse ON FIRE               120,000    $3,500  $  2,533 $  3,401 $  4,869  $ 38,601 $ 11.49 BOOK BOOK
+  HIVEMIND                    230,000    $8,500  $  5,299 $  7,115 $ 10,185  $ 60,520 $  9.40 BOOK BOOK
+  Bellular News               300,000    $8,500  $  6,912 $  9,280 $ 13,285  $ 60,610 $  7.22 BOOK BOOK
+  HipHopMadness                60,000    $2,500  $  1,477 $  1,984 $  2,840  $ 15,291 $  9.10 BOOK BOOK
+  Liam Donovan                100,000    $4,200  $      0 $      0 $      0  $ 25,116 $  8.97 PASS BOOK
+  bizlychannel              1,100,000   $26,000  $ 17,546 $ 23,558 $ 33,725  $261,290 $  8.48 BOOK BOOK
+  spatnz                       90,000    $3,000  $  2,216 $  2,975 $  4,259  $ 18,995 $  7.54 BOOK BOOK
+  The Kick Off                 90,000    $5,800  $  2,216 $  2,975 $  4,259  $ 20,027 $  7.95 PASS BOOK
+  Txunamy                   1,200,000   $48,000  $      0 $      0 $      0  $251,046 $  7.47 PASS BOOK
+  Syn In Da Streets            50,000    $2,200  $  1,231 $  1,653 $  2,366  $ 18,325 $ 13.09 BOOK BOOK
+  Pounder McNasty             200,000    $5,000  $  4,608 $  6,187 $  8,857  $ 36,783 $  6.57 BOOK BOOK
+  Ryan Pictures               380,000   $12,000  $  8,755 $ 11,755 $ 16,827  $ 85,040 $  7.99 BOOK BOOK
+  Amir Odom                   120,000    $6,400  $      0 $      0 $      0  $ 50,151 $ 14.93 PASS BOOK
+  gabi belle                  500,000   $40,000  $  8,573 $ 11,297 $ 14,773  $132,538 $  9.47 PASS BOOK
+  Wera                        100,000    $4,200  $  2,111 $  2,834 $  4,057  $ 17,345 $  6.20 PASS BOOK
+  Internet Anarchist          500,000            $      0 $      0 $      0  $107,202 $  7.66          
+  Michelle Mana               100,000    $5,000  $      0 $      0 $      0  $ 38,442 $ 13.73 PASS BOOK
+  Andreas Eskander            800,000   $20,000  $      0 $      0 $      0  $245,255 $ 10.95 PASS BOOK
+  Trap More Ross              120,000    $4,200  $  2,533 $  3,401 $  4,869  $ 35,080 $ 10.44 BOOK BOOK
+  DARKLIVITY                   80,000    $3,000  $  2,149 $  2,496 $  3,438  $ 39,177 $ 17.49 BOOK BOOK
+  The Taboo Room With Aaron S   500,000   $10,000  $  7,975 $ 10,708 $ 15,329  $177,731 $ 12.70 BOOK BOOK
+  Kendall Rae                 750,000   $28,000  $ 13,051 $ 15,156 $ 20,881  $315,822 $ 15.04 PASS BOOK
+  Midwest Safety            1,100,000   $28,000  $      0 $      0 $      0  $443,078 $ 14.39 PASS BOOK
+  Disturban                   300,000    $6,200  $      0 $      0 $      0  $ 74,217 $  8.84 PASS BOOK
+  VULDAR                      100,000    $5,500  $      0 $      0 $      0  $ 29,522 $ 10.55 PASS BOOK
+  Top5s                        50,000    $2,500  $      0 $      0 $      0  $ 14,827 $ 10.59 PASS BOOK
+  Ape Huncho                  500,000            $      0 $      0 $      0  $186,212 $ 13.30          
+  Cold Case Detective          70,000    $1,500  $      0 $      0 $      0  $ 23,411 $ 11.95 PASS BOOK
+  Sun Kissed Bucket List       50,000    $2,500  $  1,231 $  1,653 $  2,366  $  8,433 $  6.02 PASS BOOK
+  LivingBobby                 800,000   $30,000  $ 12,761 $ 17,133 $ 24,527  $136,154 $  6.08 PASS BOOK
+  The American Highlander      60,000    $3,000  $      0 $      0 $      0  $ 24,065 $ 14.33 PASS BOOK
+  Jimmy Kim                   150,000            $  3,166 $  4,251 $  6,086  $ 27,182 $  6.47          
+  Andrew Fraser               150,000    $5,800  $  3,166 $  4,251 $  6,086  $ 31,669 $  7.54 BOOK BOOK
+  Timmy Karter                250,000    $9,500  $  5,760 $  7,733 $ 11,071  $ 57,353 $  8.19 BOOK BOOK
+  josie lifts things          400,000            $ 10,053 $ 11,675 $ 16,085  $152,179 $ 13.59          
+  Chloé and sometimes Ludvig    50,000    $1,800  $      0 $      0 $      0  $ 16,893 $ 12.07 PASS BOOK
+  Matt and Julia              200,000            $  4,608 $  6,187 $  8,857  $ 42,789 $  7.64          
+  drewdoes                    800,000   $22,000  $      0 $      0 $      0  $234,771 $ 10.48 PASS BOOK
+  Indigo Traveller            300,000   $17,000  $  6,912 $  9,280 $ 13,285  $ 62,029 $  7.39 PASS BOOK
+  Go With Ali                 400,000            $  9,216 $ 12,373 $ 17,713  $ 82,007 $  7.32          
+  Nico Grigg                1,000,000   $38,000  $      0 $      0 $      0  $284,636 $ 10.17 PASS BOOK
+  Matthew Ables               200,000    $5,800  $      0 $      0 $      0  $ 70,391 $ 12.57 PASS BOOK
+  Matt Stonie                 400,000   $56,000  $  9,216 $ 12,373 $ 17,713  $ 89,700 $  8.01 PASS BOOK
+  Jon Barr                    356,000    $8,800  $  8,202 $ 11,012 $ 15,765  $103,735 $ 10.41 BOOK BOOK
+  VicInTheGame                330,000            $      0 $      0 $      0  $100,486 $ 10.88          
+  jacksfilms                  300,000            $      0 $      0 $      0  $ 78,365 $  9.33          
+  OVERNIGHT                   250,000   $18,000  $  6,191 $  8,159 $ 10,669  $ 79,089 $ 11.30 PASS BOOK
+  Storified                   200,000    $5,000  $  4,608 $  6,187 $  8,857  $ 45,313 $  8.09 BOOK BOOK
+  Beauty and the Beasts       100,000    $4,000  $      0 $      0 $      0  $ 30,858 $ 11.02 PASS BOOK
+  Grief                       200,000    $7,200  $      0 $      0 $      0  $ 63,264 $ 11.30 PASS BOOK
+  Chris Stuckmann             120,000    $5,000  $  2,533 $  3,401 $  4,869  $ 27,800 $  8.28 PASS BOOK
+  Jared Bauer                  70,000    $3,000  $  1,724 $  2,314 $  3,313  $ 21,761 $ 11.10 BOOK BOOK
+  Everything Always            50,000    $2,000  $  1,231 $  1,653 $  2,366  $ 16,506 $ 11.79 BOOK BOOK
+  Nerd Explains               300,000    $5,200  $  6,912 $  9,280 $ 13,285  $ 63,699 $  7.58 BOOK BOOK
+  ScreenCrush                 150,000            $  3,166 $  4,251 $  6,086  $ 45,892 $ 10.93          
+  The Canadian Lad            350,000   $14,000  $  8,064 $ 10,827 $ 15,499  $ 55,706 $  5.69 BOOK BOOK
+  Nerdstalgic                 150,000    $5,600  $  3,166 $  4,251 $  6,086  $ 36,675 $  8.73 BOOK BOOK
+  EmergencyAwesome            400,000    $9,000  $  9,216 $ 12,373 $ 17,713  $114,579 $ 10.23 BOOK BOOK
+  Syn Horror                   65,000    $2,100  $  1,601 $  2,149 $  3,076  $ 24,048 $ 13.22 BOOK BOOK
+  Recap & Chill               120,000    $5,500  $      0 $      0 $      0  $ 29,857 $  8.89 PASS BOOK
+  HiTop Films                  60,000    $3,500  $  1,477 $  1,984 $  2,840  $ 11,828 $  7.04 PASS BOOK
+  Nogla & Terroriser REACT!   300,000    $8,800  $  6,912 $  9,280 $ 13,285  $ 66,385 $  7.90 BOOK BOOK
+  KFoltyn                   1,000,000   $28,000  $ 15,951 $ 21,417 $ 30,659  $244,377 $  8.73 BOOK BOOK
+  Foltyn Reacts               900,000   $20,000  $      0 $      0 $      0  $297,451 $ 11.81 PASS BOOK
+  TechJoyce                 1,400,000   $43,000  $      0 $      0 $      0  $386,795 $  9.87 PASS BOOK
+  Michelle Reed                50,000    $4,200  $  1,343 $  1,560 $  2,149  $ 22,633 $ 16.17 PASS BOOK
+  Lujan                       200,000    $8,800  $  4,608 $  6,187 $  8,857  $ 53,945 $  9.63 BOOK BOOK
+  Max Fosh                    900,000   $58,000  $ 14,356 $ 19,275 $ 27,593  $150,559 $  5.98 PASS BOOK
+  The Boys                    650,000   $50,000  $      0 $      0 $      0  $179,041 $  9.84 PASS BOOK
+  Vat9Team                     90,000    $2,700  $      0 $      0 $      0  $ 29,590 $ 11.74 PASS BOOK
+  Garrett Unhinged            140,000            $      0 $      0 $      0  $ 47,715 $ 12.17          
+  MindSquire                  500,000   $15,000  $  7,975 $ 10,708 $ 15,329  $112,749 $  8.05 BOOK BOOK
+  Unspeakable Studios       1,000,000   $18,000  $      0 $      0 $      0  $412,814 $ 14.75 PASS BOOK
+  Brawadis                    500,000   $35,000  $  7,975 $ 10,708 $ 15,329  $139,286 $  9.95 PASS BOOK
+  Brave Wilderness            200,000   $12,000  $  4,608 $  6,187 $  8,857  $ 51,544 $  9.21 PASS BOOK
+  Runiktv                     240,000            $      0 $      0 $      0  $101,129 $ 15.05          
+  Imbrandonfarris             300,000   $28,000  $  7,540 $  8,756 $ 12,064  $118,694 $ 14.13 PASS BOOK
+  Crispy Concords             400,000   $28,000  $  9,216 $ 12,373 $ 17,713  $ 83,075 $  7.42 PASS BOOK
+  Bobia                       100,000    $3,500  $      0 $      0 $      0  $ 45,312 $ 16.19 PASS BOOK
+  Vat19                       100,000    $2,200  $      0 $      0 $      0  $ 31,889 $ 11.39 PASS BOOK
+  FaZe Rug                  3,000,000  $100,000  $      0 $      0 $      0  $803,876 $  9.57 PASS BOOK
+  HIVEMIND UNLIMITED           70,000    $3,500  $  1,724 $  2,314 $  3,313  $ 22,262 $ 11.36 PASS BOOK
+  GreenGay                     75,000    $1,500  $      0 $      0 $      0  $ 20,553 $  9.79 PASS BOOK
+  The Venture Room            120,000    $8,500  $  2,533 $  3,401 $  4,869  $ 28,835 $  8.58 PASS BOOK
+  ActionToon                  400,000    $9,000  $  9,216 $ 12,373 $ 17,713  $106,759 $  9.53 BOOK BOOK
+  Comic Drake                  56,000    $3,500  $  1,379 $  1,851 $  2,650  $ 12,265 $  7.82 PASS BOOK
+  Variant Comics               70,000    $2,800  $  1,724 $  2,314 $  3,313  $ 18,870 $  9.63 BOOK BOOK
+  John Wolfe                  200,000   $11,000  $  4,608 $  6,187 $  8,857  $ 63,374 $ 11.32 PASS BOOK
+  Luke Stephens               180,000    $4,500  $  3,800 $  5,102 $  7,303  $ 39,004 $  7.74 BOOK BOOK
+  RedFalcon                   200,000   $12,000  $  4,608 $  6,187 $  8,857  $ 60,083 $ 10.73 PASS BOOK
+  slater                      130,000    $4,800  $  2,744 $  3,684 $  5,274  $ 34,887 $  9.59 BOOK BOOK
+  Best Gamer Ali               80,000    $2,700  $  1,970 $  2,645 $  3,786  $ 14,142 $  6.31 BOOK BOOK
+  Amazing Chest               200,000            $  4,608 $  6,187 $  8,857  $ 51,027 $  9.11          
+  C Engineer                  130,000    $4,300  $  2,744 $  3,684 $  5,274  $ 20,531 $  5.64 BOOK BOOK
+  BigWilly                    150,000    $2,600  $  3,166 $  4,251 $  6,086  $ 33,965 $  8.09 BOOK BOOK
+  Dorkly                      166,000    $4,500  $  3,504 $  4,705 $  6,735  $ 37,190 $  8.00 BOOK BOOK
+  Mickey Munch                800,000   $20,000  $      0 $      0 $      0  $283,566 $ 12.66 PASS BOOK
+  Tappy                        90,000    $7,200  $  2,216 $  2,975 $  4,259  $ 23,368 $  9.27 PASS BOOK
+  Geoffrey James              190,000    $6,000  $      0 $      0 $      0  $ 38,648 $  7.27 PASS BOOK
+  TapWater                     80,000    $5,700  $  1,970 $  2,645 $  3,786  $ 22,008 $  9.83 PASS BOOK
+  SeaWattgaming             1,500,000   $22,000  $      0 $      0 $      0  $405,076 $  9.65 PASS BOOK
+  SourSweet                   355,000            $  8,179 $ 10,981 $ 15,720  $ 75,685 $  7.62          
+  BigB2Plus                    50,000    $2,800  $  1,323 $  1,744 $  2,280  $ 15,279 $ 10.92 PASS BOOK
+  ZChum                     1,300,000   $42,000  $ 20,736 $ 27,841 $ 39,856  $285,272 $  7.84 PASS BOOK
+  Nostalgia Nerd              100,000    $4,000  $  2,111 $  2,834 $  4,057  $ 22,844 $  8.16 BOOK BOOK
+  ESSA ADVENTURE               80,000    $3,500  $  1,970 $  2,645 $  3,786  $ 19,047 $  8.50 BOOK BOOK
+  The Indie Projects           90,000    $2,600  $      0 $      0 $      0  $ 18,980 $  7.53 PASS BOOK
+  Kyle Royer                  300,000    $6,000  $  6,912 $  9,280 $ 13,285  $ 57,957 $  6.90 BOOK BOOK
+  Footprint Hero with Alex Beale   280,000   $11,000  $  6,451 $  8,661 $ 12,399  $ 71,757 $  9.15 BOOK BOOK
+  Tylers Fishing Posts         35,000    $3,000  $    890 $  1,195 $  1,711  $ 10,804 $ 11.03 PASS BOOK
+  Wag Entertainment           100,000    $4,200  $  2,111 $  2,834 $  4,057  $ 24,179 $  8.64 PASS BOOK
+  I Can Do That               100,000    $4,400  $  2,111 $  2,834 $  4,057  $ 28,348 $ 10.13 PASS BOOK
+  MURPHYS DIESEL              600,000   $18,000  $  9,571 $ 12,850 $ 18,395  $201,272 $ 11.98 BOOK BOOK
+  Restoring La Chartreuse      30,000    $1,400  $      0 $      0 $      0  $  8,504 $ 10.13 PASS BOOK
+  New Money                   200,000    $8,500  $  4,608 $  6,187 $  8,857  $ 38,463 $  6.87 BOOK BOOK
+  Journey With The Hintons    120,000   $17,000  $      0 $      0 $      0  $ 53,945 $ 16.06 PASS BOOK
+  The Exit Manual             100,000    $5,700  $  2,111 $  2,834 $  4,057  $ 20,193 $  7.21 PASS BOOK
+  Adam Stew                    50,000    $5,000  $  1,231 $  1,653 $  2,366  $ 16,519 $ 11.80 PASS BOOK
+  UnitedPeoplesTV              80,000    $4,800  $  1,970 $  2,645 $  3,786  $ 11,929 $  5.33 PASS BOOK
+  Motivedia - Boxing          250,000   $20,000  $  5,760 $  7,733 $ 11,071  $ 71,773 $ 10.26 PASS BOOK
+  Casey Kelly                 180,000    $6,000  $  3,800 $  5,102 $  7,303  $ 50,893 $ 10.10 BOOK BOOK
+  Jada Waters                 100,000    $5,000  $  2,303 $  2,674 $  3,684  $ 46,263 $ 16.53 PASS BOOK
+  Worcester Terrariums        600,000   $15,000  $      0 $      0 $      0  $169,512 $ 10.09 PASS BOOK
+  Weird History Food           80,000    $5,500  $  1,970 $  2,645 $  3,786  $ 29,429 $ 13.14 PASS BOOK
+  FatalBreakdown               40,000    $2,800  $  1,017 $  1,366 $  1,956  $  9,325 $  8.33 PASS BOOK
+  Serious History           1,000,000   $13,000  $ 15,951 $ 21,417 $ 30,659  $222,949 $  7.96 BOOK BOOK
+  RobertIDK                   100,000    $4,400  $      0 $      0 $      0  $ 35,771 $ 12.78 PASS BOOK
+  Bible Animations            250,000    $3,500  $  5,760 $  7,733 $ 11,071  $ 73,374 $ 10.48 BOOK BOOK
+  The Wealth Explainer        100,000    $7,000  $  2,111 $  2,834 $  4,057  $ 19,645 $  7.02 PASS BOOK
+  Timeless Tim                 90,000    $5,000  $      0 $      0 $      0  $ 25,824 $ 10.25 PASS BOOK
+  BeyondTheBlue               200,000    $9,000  $  4,608 $  6,187 $  8,857  $ 47,296 $  8.45 PASS BOOK
+  Kings and Generals          200,000    $6,500  $  4,608 $  6,187 $  8,857  $ 35,932 $  6.42 BOOK BOOK
+  Dan Davis History           250,000    $9,500  $  5,760 $  7,733 $ 11,071  $ 64,866 $  9.27 BOOK BOOK
+  Ian Lauer Astro             100,000    $5,000  $  2,111 $  2,834 $  4,057  $ 23,212 $  8.29 PASS BOOK
+  Uncovering                  200,000            $      0 $      0 $      0  $ 48,014 $  8.58          
+  CaspianReport               350,000   $24,000  $  8,064 $ 10,827 $ 15,499  $ 68,245 $  6.96 PASS BOOK
+  The Little Platoon          200,000    $7,200  $  4,608 $  6,187 $  8,857  $ 50,393 $  9.00 BOOK BOOK
+  The Movie Cynic             200,000    $7,000  $  4,608 $  6,187 $  8,857  $ 50,085 $  8.95 BOOK BOOK
+  Lost Chord                  100,000    $7,150  $  2,111 $  2,834 $  4,057  $ 24,222 $  8.65 PASS BOOK
+  Big Water Guy               100,000    $7,250  $  2,111 $  2,834 $  4,057  $ 33,129 $ 11.83 PASS BOOK
+  Saucy Seth                  100,000    $7,500  $      0 $      0 $      0  $ 42,793 $ 15.29 PASS BOOK
+  Fishin' with Tate           190,000    $8,000  $  4,011 $  5,385 $  7,709  $ 76,536 $ 14.39 PASS BOOK
+  Small Brained American      450,000    $8,250  $ 10,368 $ 13,920 $ 19,927  $112,300 $  8.91 BOOK BOOK
+  Darzii                      200,000    $8,250  $  4,608 $  6,187 $  8,857  $ 43,776 $  7.82 BOOK BOOK
+  Gunscreen                   300,000    $8,650  $  6,912 $  9,280 $ 13,285  $ 71,397 $  8.50 BOOK BOOK
+  Nikki Delventhal            150,000    $8,600  $  3,166 $  4,251 $  6,086  $ 55,335 $ 13.18 PASS BOOK
+  Cinemassacre                250,000    $8,570  $  5,760 $  7,733 $ 11,071  $ 78,769 $ 11.25 BOOK BOOK
+  Dr. Jordan Breeding         110,000    $8,890  $  2,322 $  3,118 $  4,463  $ 40,956 $ 13.30 PASS BOOK
+  Soggy Cereal                180,000   $11,500  $  3,800 $  5,102 $  7,303  $ 44,060 $  8.74 PASS BOOK
+  ARAKO TV                    500,000   $11,500  $  7,975 $ 10,708 $ 15,329  $105,631 $  7.55 BOOK BOOK
+  Reed The Fishmonger         180,000   $13,000  $  3,800 $  5,102 $  7,303  $ 53,748 $ 10.67 PASS BOOK
+  Swamp Storiez               800,000   $14,300  $ 12,761 $ 17,133 $ 24,527  $293,530 $ 13.11 BOOK BOOK
+  Salem Tovar                 500,000   $17,200  $  8,700 $ 10,104 $ 13,921  $184,666 $ 13.19 PASS BOOK
+  SkyWhisper                  500,000            $      0 $      0 $      0  $215,294 $ 15.38          
+  More Than Athletes          500,000    $7,200  $  7,975 $ 10,708 $ 15,329  $172,413 $ 12.32 BOOK BOOK
+  KickinTheirBASSTV           400,000   $22,000  $  9,216 $ 12,373 $ 17,713  $162,108 $ 14.48 PASS BOOK
+  Guiny                       300,000   $22,000  $  6,912 $  9,280 $ 13,285  $ 39,967 $  4.76 PASS BOOK
+  America's Funniest Home Videos   250,000   $22,500  $      0 $      0 $      0  $ 65,610 $  9.37 PASS BOOK
+  Daniel Thrasher             200,000   $17,000  $      0 $      0 $      0  $ 53,334 $  9.53 PASS BOOK
+  Simple Paint                500,000   $17,150  $  7,975 $ 10,708 $ 15,329  $119,049 $  8.51 PASS BOOK
+  SpeirsTheAmazingHD          400,000   $14,300  $      0 $      0 $      0  $133,736 $ 11.94 PASS BOOK
+  SLOAN                       150,000   $14,300  $  3,454 $  4,011 $  5,527  $ 59,370 $ 14.14 PASS BOOK
+  Sam and Monica              100,000   $14,000  $  2,269 $  2,990 $  3,910  $ 20,989 $  7.50 PASS BOOK
+  Alexander Avila             340,000   $12,200  $      0 $      0 $      0  $ 82,119 $  8.63 PASS BOOK
+  Michael Button              250,000   $11,500  $  5,760 $  7,733 $ 11,071  $ 68,213 $  9.75 PASS BOOK
+  It's Blanko                 220,000   $11,250  $  5,069 $  6,805 $  9,742  $ 53,644 $  8.71 PASS BOOK
+  loveliveserve               300,000   $11,000  $  6,912 $  9,280 $ 13,285  $ 70,733 $  8.42 BOOK BOOK
+  rationalityrules            300,000   $10,000  $  6,912 $  9,280 $ 13,285  $ 74,751 $  8.90 BOOK BOOK
+  Ryan Beard Productions      300,000   $11,000  $      0 $      0 $      0  $ 81,463 $  9.70 PASS BOOK
+  Allison Baek                180,000    $8,050  $      0 $      0 $      0  $ 52,881 $ 10.49 PASS BOOK
+  Stoic Stick                 150,000    $7,250  $  3,166 $  4,251 $  6,086  $ 29,095 $  6.93 PASS BOOK
+  Audit the Audit             700,000   $12,900  $ 11,166 $ 14,992 $ 21,461  $239,683 $ 12.23 BOOK BOOK
+  Dayum                     1,000,000   $12,890  $      0 $      0 $      0  $268,541 $  9.59 PASS BOOK
+  Mediocre Tutorials and Reviews   100,000    $7,150  $  2,111 $  2,834 $  4,057  $ 40,461 $ 14.45 PASS BOOK
+  Fletcher The Fisherman      500,000   $29,000  $  7,975 $ 10,708 $ 15,329  $168,792 $ 12.06 PASS BOOK
+  Joe Bartolozzi              700,000   $25,000  $ 11,166 $ 14,992 $ 21,461  $191,496 $  9.77 PASS BOOK
+  Joe Bart Games              300,000   $17,500  $  7,429 $  9,791 $ 12,802  $121,459 $ 14.46 PASS BOOK
+  Dantic                    3,000,000   $55,000  $ 47,853 $ 64,250 $ 91,976  $502,822 $  5.99 BOOK BOOK
+  The Game Theorists          900,000   $35,000  $      0 $      0 $      0  $218,133 $  8.66 PASS BOOK
+  The Film Theorists          750,000   $35,000  $      0 $      0 $      0  $189,160 $  9.01 PASS BOOK
+  Kendall Gray              1,100,000   $55,000  $ 17,546 $ 23,558 $ 33,725  $426,660 $ 13.86 PASS BOOK
+  KG Gaming                   300,000   $20,000  $      0 $      0 $      0  $126,545 $ 15.07 PASS BOOK
+  FrenchieFries             1,000,000   $52,000  $      0 $      0 $      0  $290,032 $ 10.36 PASS BOOK
+  Stranger Stories            250,000    $7,200  $      0 $      0 $      0  $104,512 $ 14.93 PASS BOOK
+  Living Ironically in Europe   300,000    $7,700  $  6,912 $  9,280 $ 13,285  $ 39,102 $  4.66 BOOK BOOK
+  Catching Killers            300,000    $8,600  $      0 $      0 $      0  $107,375 $ 12.79 PASS BOOK
+  NOT THE GOOD GIRL           150,000    $8,650  $      0 $      0 $      0  $ 59,051 $ 14.06 PASS BOOK
+  Slapped Ham                 250,000    $8,800  $      0 $      0 $      0  $ 79,521 $ 11.36 PASS BOOK
+  iNabber                     800,000   $11,500  $      0 $      0 $      0  $211,867 $  9.46 PASS BOOK
+  Spill Sesh                  150,000   $10,000  $  3,454 $  4,011 $  5,527  $ 59,379 $ 14.14 PASS BOOK
+  Insanity Bodycam            500,000   $17,100  $  7,975 $ 10,708 $ 15,329  $218,896 $ 15.64 PASS BOOK
+  David Alvareeezy          2,500,000   $20,000  $ 39,877 $ 53,541 $ 76,647  $538,954 $  7.70 BOOK BOOK
+  Trap Lore Ross              500,000   $10,000  $  7,975 $ 10,708 $ 15,329  $152,589 $ 10.90 BOOK BOOK
+  Historically                800,000   $13,000  $ 12,761 $ 17,133 $ 24,527  $178,691 $  7.98 BOOK BOOK
+  Daniel Krafft               700,000   $22,000  $      0 $      0 $      0  $138,817 $  7.08 PASS BOOK
+  Something Sinister          170,000    $1,500  $      0 $      0 $      0  $ 57,030 $ 11.98 PASS BOOK
+  What Lurks Beneath          300,000    $7,700  $      0 $      0 $      0  $120,295 $ 14.32 PASS BOOK
+  Josh Prime                  100,000    $2,250  $      0 $      0 $      0  $ 45,470 $ 16.24 PASS BOOK
+  Josh Prime 2                100,000    $2,200  $      0 $      0 $      0  $ 47,220 $ 16.87 PASS BOOK
+  Secret Society              100,000    $2,000  $  2,303 $  2,674 $  3,684  $ 34,561 $ 12.35 BOOK BOOK
+  Framed                      260,000    $8,650  $  5,990 $  8,043 $ 11,514  $ 45,735 $  6.28 BOOK BOOK
+  JimmyTheGiant               400,000    $8,000  $  9,216 $ 12,373 $ 17,713  $ 80,306 $  7.17 BOOK BOOK
+  dorisxchi                   250,000    $4,000  $      0 $      0 $      0  $ 84,155 $ 12.02 PASS BOOK
+  WrestleTalk                  90,000    $3,250  $  2,216 $  2,975 $  4,259  $ 22,948 $  9.11 BOOK BOOK
+  Chase Bridges               150,000    $2,950  $      0 $      0 $      0  $ 38,654 $  9.21 PASS BOOK
+  Savox                       120,000    $2,200  $      0 $      0 $      0  $ 38,445 $ 11.44 PASS BOOK
+  Cipher                      300,000   $11,000  $  6,912 $  9,280 $ 13,285  $ 52,831 $  6.29 BOOK BOOK
+  BillyBinges                  30,000    $2,000  $    832 $    967 $  1,332  $ 10,121 $ 12.05 PASS BOOK
+  Kyle Hates Hiking           350,000   $13,000  $      0 $      0 $      0  $133,496 $ 13.62 PASS BOOK
+  LoeyLane                    200,000   $10,000  $  5,027 $  5,837 $  8,043  $ 87,118 $ 15.56 PASS BOOK
+  Johnny 2 Cellos             200,000    $5,200  $      0 $      0 $      0  $ 61,137 $ 10.92 PASS BOOK
+  The Void                    100,000    $3,850  $      0 $      0 $      0  $ 34,512 $ 12.33 PASS BOOK
+  Depths of Despair           120,000    $3,600  $      0 $      0 $      0  $ 39,674 $ 11.81 PASS BOOK
+  SciManDan                    50,000    $3,850  $  1,231 $  1,653 $  2,366  $ 12,184 $  8.70 PASS BOOK
+  The Media Knights           120,000    $2,900  $  2,533 $  3,401 $  4,869  $ 40,114 $ 11.94 BOOK BOOK
+  sixteenleo                  100,000    $3,250  $      0 $      0 $      0  $ 36,111 $ 12.90 PASS BOOK
+  ReignBot                    100,000    $2,640  $      0 $      0 $      0  $ 22,475 $  8.03 PASS BOOK
+  The Thrifty Typewriter      100,000    $2,600  $  2,111 $  2,834 $  4,057  $ 27,054 $  9.66 BOOK BOOK
+  Luke Alexander               25,000    $3,100  $    694 $    806 $  1,110  $  7,703 $ 11.01 PASS BOOK
+  Creaky Blinder™              20,000    $2,850  $    509 $    683 $    978  $  4,354 $  7.78 PASS BOOK
+  CDTVProductions              35,000    $3,000  $    890 $  1,195 $  1,711  $  7,716 $  7.88 PASS BOOK
+  Abyssoft                    260,000    $7,200  $  5,990 $  8,043 $ 11,514  $ 61,611 $  8.46 BOOK BOOK
+  Naomi Jon                 1,000,000   $29,000  $ 17,401 $ 20,208 $ 27,841  $234,524 $  8.38 PASS BOOK
+  revolutionaryth0t            90,000    $2,900  $      0 $      0 $      0  $ 19,845 $  7.88 PASS BOOK
+  Megan and Ben               330,000    $9,300  $      0 $      0 $      0  $ 76,777 $  8.31 PASS BOOK
+  TornadoTRX                1,800,000   $25,000  $      0 $      0 $      0  $625,538 $ 12.41 PASS BOOK
+  Film Cooper                 800,000   $43,000  $ 13,921 $ 16,166 $ 22,273  $283,424 $ 12.66 PASS BOOK
+  Oats Jenkins                200,000    $5,000  $      0 $      0 $      0  $ 62,043 $ 11.08 PASS BOOK
+  Nuxanor                     150,000    $5,000  $  3,166 $  4,251 $  6,086  $ 45,505 $ 10.84 BOOK BOOK
+  Squampopulous               100,000    $6,000  $  2,111 $  2,834 $  4,057  $ 26,221 $  9.37 PASS BOOK
+  Aaron and Jo                150,000    $4,300  $  3,454 $  4,011 $  5,527  $ 40,816 $  9.72 BOOK BOOK
+  JackFed                     140,000    $4,250  $      0 $      0 $      0  $ 34,255 $  8.74 PASS BOOK
+  Megan Moon                   60,000    $4,500  $  1,612 $  1,872 $  2,579  $ 19,315 $ 11.50 PASS BOOK
+  latea & Acis                140,000    $5,800  $      0 $      0 $      0  $ 38,281 $  9.77 PASS BOOK
+  Critical Drinker After Hours   200,000    $5,715  $  4,608 $  6,187 $  8,857  $ 48,059 $  8.58 BOOK BOOK
+  SirPugger                   200,000    $5,650  $  4,608 $  6,187 $  8,857  $ 32,937 $  5.88 BOOK BOOK
+  Lucas and Marcus            500,000            $      0 $      0 $      0  $116,060 $  8.29          
+  XanderJ                     360,000            $  8,294 $ 11,136 $ 15,942  $ 72,379 $  7.18          
+  Welchy                      100,000    $3,000  $  2,303 $  2,674 $  3,684  $ 20,963 $  7.49 BOOK BOOK
+  Tell Us More                100,000    $3,100  $      0 $      0 $      0  $ 23,239 $  8.30 PASS BOOK
+  15 Minutes of Shame          40,000    $3,000  $  1,017 $  1,366 $  1,956  $ 10,244 $  9.15 PASS BOOK
+  RAZZLE                       50,000    $1,950  $      0 $      0 $      0  $ 12,966 $  9.26 PASS BOOK
+  Stephanie Soo             1,100,000   $40,000  $ 19,141 $ 22,228 $ 30,626  $297,369 $  9.66 PASS BOOK
+  Dr Insanity               5,000,000   $29,000  $      0 $      0 $      0  $1,606,785 $ 11.48 PASS BOOK
+  amandamaryanna               50,000            $      0 $      0 $      0  $ 14,395 $ 10.28          
+  Internet Pitstop            150,000            $  3,166 $  4,251 $  6,086  $ 35,063 $  8.35          
+  liv bevan                   100,000            $      0 $      0 $      0  $ 29,284 $ 10.46          
+  Matthew Cox | Inside True Crime    80,000    $2,000  $      0 $      0 $      0  $ 35,481 $ 15.84 PASS BOOK
+  The Villains                500,000    $7,500  $      0 $      0 $      0  $167,591 $ 11.97 PASS BOOK
+  ManyKudos                   100,000    $8,500  $  2,111 $  2,834 $  4,057  $ 24,067 $  8.60 PASS BOOK
+  Addy                        200,000    $4,000  $      0 $      0 $      0  $ 53,147 $  9.49 PASS BOOK
+  Blake Jennings              200,000            $      0 $      0 $      0  $ 60,173 $ 10.75          
+  Asa Park                    100,000            $  2,111 $  2,834 $  4,057  $ 21,761 $  7.77          
+  JackSucksAtStuff             80,000            $      0 $      0 $      0  $ 15,428 $  6.89          
+  Jordan Cunningham           100,000    $3,000  $      0 $      0 $      0  $ 29,775 $ 10.64 PASS BOOK
+  Abbie Ree                   100,000    $3,000  $      0 $      0 $      0  $ 25,501 $  9.11 PASS BOOK
+  Chris Spargo                162,000    $5,000  $  3,420 $  4,591 $  6,573  $ 45,363 $ 10.00 BOOK BOOK
+  Alex O'Connor               150,000    $8,000  $      0 $      0 $      0  $ 34,497 $  8.22 PASS BOOK
+  Marina McBain               250,000    $7,000  $      0 $      0 $      0  $ 62,738 $  8.96 PASS BOOK
+  That Chapter                700,000   $26,000  $      0 $      0 $      0  $270,882 $ 13.82 PASS BOOK
+  Poppies Studios           1,000,000   $18,000  $      0 $      0 $      0  $223,670 $  7.99 PASS BOOK
+  morgans vlogs               400,000   $20,000  $ 10,053 $ 11,675 $ 16,085  $163,617 $ 14.61 PASS BOOK
+  Mai Pham                    300,000   $26,000  $  7,540 $  8,756 $ 12,064  $ 72,647 $  8.65 PASS BOOK
+  Mr. Nightmare               750,000   $17,000  $      0 $      0 $      0  $252,711 $ 12.04 PASS BOOK
+  CelinaSpookyBoo             300,000   $14,000  $      0 $      0 $      0  $124,834 $ 14.86 PASS BOOK
+  Familia Diamond           1,000,000   $50,000  $      0 $      0 $      0  $350,012 $ 12.50 PASS BOOK
+  ThisIsLife                  200,000    $7,500  $  4,608 $  6,187 $  8,857  $ 53,595 $  9.57 BOOK BOOK
+  We The People University    150,000    $6,000  $  3,166 $  4,251 $  6,086  $ 55,670 $ 13.26 BOOK BOOK
+  LackLuster                  250,000    $8,000  $  5,760 $  7,733 $ 11,071  $ 82,060 $ 11.72 BOOK BOOK
+  Blackfiles                  200,000    $9,000  $  4,608 $  6,187 $  8,857  $ 41,939 $  7.49 PASS BOOK
+  Plaantik                    290,000    $9,000  $  6,681 $  8,971 $ 12,842  $ 45,509 $  5.61 BOOK BOOK
+  Pantons Squad               120,000    $8,500  $  2,763 $  3,209 $  4,421  $ 43,990 $ 13.09 PASS BOOK
+  Joon The King               380,000   $13,000  $      0 $      0 $      0  $105,441 $  9.91 PASS BOOK
+  Jancy Family                180,000   $15,000  $      0 $      0 $      0  $ 81,778 $ 16.23 PASS BOOK
+  Karolina Żebrowska          150,000    $7,000  $      0 $      0 $      0  $ 28,977 $  6.90 PASS BOOK
+  THE MILLER FAM               50,000            $      0 $      0 $      0  $ 14,262 $ 10.19          
+  MAZELEE                     650,000   $20,000  $ 11,311 $ 13,135 $ 18,097  $243,316 $ 13.37 PASS BOOK
+  The Anazala Family        8,000,000   $78,000  $      0 $      0 $      0  $3,093,329 $ 13.81 PASS BOOK
+  B N S                       200,000   $11,000  $  4,608 $  6,187 $  8,857  $ 64,163 $ 11.46 PASS BOOK
+  Coffeehouse Crime           650,000   $23,000  $      0 $      0 $      0  $181,179 $  9.96 PASS BOOK
+  5IVE GUYS FC                714,000   $18,000  $ 11,389 $ 15,291 $ 21,890  $159,053 $  7.96 BOOK BOOK
+  Garrett Watts             1,200,000   $45,000  $ 20,881 $ 24,249 $ 33,410  $404,751 $ 12.05 PASS BOOK
+  SIRIUS                      700,000   $16,000  $ 11,166 $ 14,992 $ 21,461  $148,306 $  7.57 BOOK BOOK
+  Elsy Guevara                119,000   $12,000  $  2,740 $  3,182 $  4,385  $ 61,550 $ 18.48 PASS BOOK
+  JOLLY                       750,000   $40,000  $      0 $      0 $      0  $179,347 $  8.54 PASS BOOK
+  The Invisible Hand          200,000    $9,000  $  4,608 $  6,187 $  8,857  $ 37,664 $  6.73 PASS BOOK
+  Joe Bart Philosophy         300,000   $11,000  $  6,912 $  9,280 $ 13,285  $ 82,759 $  9.85 BOOK BOOK
+  Spill Sesh                  150,000    $4,900  $  3,454 $  4,011 $  5,527  $ 59,379 $ 14.14 BOOK BOOK
+  Savantics                   100,000    $2,940  $      0 $      0 $      0  $ 24,856 $  8.88 PASS BOOK
+  Khaotic Viewing             100,000    $4,900  $      0 $      0 $      0  $ 31,009 $ 11.08 PASS BOOK
+  Swiftologist                200,000    $6,000  $      0 $      0 $      0  $ 57,538 $ 10.28 PASS BOOK
+  gabi belle                  700,000   $15,000  $      0 $      0 $      0  $185,554 $  9.47 PASS BOOK
+  STRANGE ÆONS                300,000   $11,200  $      0 $      0 $      0  $ 73,090 $  8.70 PASS BOOK
+  aini                        200,000    $9,800  $      0 $      0 $      0  $ 40,768 $  7.28 PASS BOOK
+  Do We Know Them?            200,000    $7,000  $  5,027 $  5,837 $  8,043  $ 84,335 $ 15.06 BOOK BOOK
+  Shelbizleee                  75,000    $9,000  $  2,015 $  2,340 $  3,223  $ 25,595 $ 12.19 PASS BOOK
+  Trin Lovell                 100,000    $5,950  $  2,303 $  2,674 $  3,684  $ 24,775 $  8.85 PASS BOOK
+  Maddy Morphosis             150,000    $4,200  $      0 $      0 $      0  $ 42,763 $ 10.18 PASS BOOK
+  Negative Legend             100,000    $3,000  $      0 $      0 $      0  $ 26,141 $  9.34 PASS BOOK
+  netflix party               200,000    $5,600  $  5,027 $  5,837 $  8,043  $ 47,033 $  8.40 BOOK BOOK
+  Jackson Field               200,000    $4,550  $  4,608 $  6,187 $  8,857  $ 41,956 $  7.49 BOOK BOOK
+  Ryan George Extra Plus!     300,000   $11,200  $  6,912 $  9,280 $ 13,285  $ 77,982 $  9.29 BOOK BOOK
+  Frugal Aesthetic            200,000    $9,100  $  4,608 $  6,187 $  8,857  $ 34,421 $  6.15 PASS BOOK
+  Alyssa Grenfell             250,000    $7,000  $  6,283 $  7,297 $ 10,053  $ 93,514 $ 13.36 BOOK BOOK
+  Daniel Thrasher Plus        120,000    $4,200  $      0 $      0 $      0  $ 32,000 $  9.53 PASS BOOK
+  Vincent Joseph               50,000    $3,500  $  1,343 $  1,560 $  2,149  $ 14,512 $ 10.37 PASS BOOK
+  Alizee                       50,000    $2,800  $  1,343 $  1,560 $  2,149  $ 12,369 $  8.84 PASS BOOK
+  DarrenLevyOfficial          250,000    $7,000  $  5,760 $  7,733 $ 11,071  $ 46,633 $  6.66 BOOK BOOK
+  Nicole Rafiee               300,000    $8,400  $  7,540 $  8,756 $ 12,064  $ 83,328 $  9.92 BOOK BOOK
+  Jaime French                200,000   $11,200  $  5,027 $  5,837 $  8,043  $ 86,908 $ 15.52 PASS BOOK
+  Jess of the Shire            50,000    $2,800  $  1,231 $  1,653 $  2,366  $ 15,086 $ 10.78 PASS BOOK
+  Rebal D                     500,000   $10,000  $  8,700 $ 10,104 $ 13,921  $100,194 $  7.16 BOOK BOOK
+  JUST TRISH PODCAST          400,000   $14,000  $ 10,053 $ 11,675 $ 16,085  $178,064 $ 15.90 BOOK BOOK
+  Stephanie Lange             500,000   $11,200  $  8,700 $ 10,104 $ 13,921  $135,866 $  9.71 BOOK BOOK
+  JeeJ                        150,000    $6,000  $  3,166 $  4,251 $  6,086  $ 24,108 $  5.74 BOOK BOOK
+  Saji Sharma                 200,000    $5,500  $      0 $      0 $      0  $ 55,927 $  9.99 PASS BOOK
+  Hugo Henderson               95,000    $3,500  $      0 $      0 $      0  $ 29,144 $ 10.96 PASS BOOK
+  ModernGurlz                 150,000    $6,000  $      0 $      0 $      0  $ 44,755 $ 10.66 PASS BOOK
+  Intelexual Media            120,000    $5,000  $      0 $      0 $      0  $ 49,661 $ 14.78 PASS BOOK
+  xeviuniverse                250,000   $21,000  $  5,760 $  7,733 $ 11,071  $ 76,143 $ 10.88 PASS BOOK
+  Cruel World Happy Mind      250,000   $11,500  $      0 $      0 $      0  $ 89,571 $ 12.80 PASS BOOK
+  Austin Green                 50,000    $2,500  $      0 $      0 $      0  $ 17,229 $ 12.31 PASS BOOK
+  VangelinaSkov                60,000    $2,800  $      0 $      0 $      0  $ 19,377 $ 11.54 PASS BOOK
+  Benaminute                  300,000   $10,000  $      0 $      0 $      0  $ 86,568 $ 10.31 PASS BOOK
+  Ploopy678                   100,000    $4,500  $      0 $      0 $      0  $ 30,929 $ 11.05 PASS BOOK
+  Chad Chad Chad            1,000,000   $25,000  $      0 $      0 $      0  $299,059 $ 10.68 PASS BOOK
+  Crumb                       340,000   $17,000  $  7,833 $ 10,517 $ 15,056  $ 74,890 $  7.87 PASS BOOK
+  The Queer Kiwi               50,000    $2,500  $      0 $      0 $      0  $ 15,879 $ 11.34 PASS BOOK
+  Doxie Carter                120,000    $8,500  $  2,723 $  3,588 $  4,692  $ 45,640 $ 13.59 PASS BOOK
+  Not Even Emily              220,000    $7,500  $      0 $      0 $      0  $ 57,910 $  9.40 PASS BOOK
+  Prettyboyfredo              250,000    $3,600  $  5,760 $  7,733 $ 11,071  $ 78,784 $ 11.26 BOOK BOOK
+  Ammy Robinson               100,000    $4,000  $  2,303 $  2,674 $  3,684  $ 42,307 $ 15.11 PASS BOOK
+  Toni Bryanne TV             100,000    $5,750  $  2,303 $  2,674 $  3,684  $ 39,171 $ 13.99 PASS BOOK
+  Camryn Suzanne              200,000    $5,700  $      0 $      0 $      0  $ 74,775 $ 13.36 PASS BOOK
+  shirashiraonthewall         400,000    $8,600  $ 10,053 $ 11,675 $ 16,085  $139,754 $ 12.48 BOOK BOOK
+  brownfireball                90,000    $3,750  $  2,418 $  2,807 $  3,868  $ 27,145 $ 10.77 BOOK BOOK
+  Klailea                      80,000    $5,100  $  2,149 $  2,496 $  3,438  $ 31,256 $ 13.96 PASS BOOK
+  Chaz Kirschmann             200,000    $5,000  $      0 $      0 $      0  $ 86,147 $ 15.39 PASS BOOK
+  Moon                        400,000    $8,570  $  9,216 $ 12,373 $ 17,713  $ 81,915 $  7.32 BOOK BOOK
+  Dankyjabo                   300,000   $10,000  $  7,540 $  8,756 $ 12,064  $109,454 $ 13.03 BOOK BOOK
+  Janae Danyiel               300,000   $17,000  $  7,540 $  8,756 $ 12,064  $117,110 $ 13.94 PASS BOOK
+  FoxAkimbo                    50,000    $2,500  $  1,323 $  1,744 $  2,280  $ 15,361 $ 10.97 PASS BOOK
+  Herby Revolus               190,000    $7,900  $      0 $      0 $      0  $ 67,498 $ 12.69 PASS BOOK
+  Jacob Sharpe                 80,000    $4,300  $      0 $      0 $      0  $ 25,889 $ 11.56 PASS BOOK
+  Annamarie Forcino           300,000    $9,250  $      0 $      0 $      0  $ 90,859 $ 10.82 PASS BOOK
+  OUTLORE with Eleanor Neale   500,000   $22,000  $  8,700 $ 10,104 $ 13,921  $124,834 $  8.92 PASS BOOK
+  j aubrey                    800,000   $35,000  $      0 $      0 $      0  $258,998 $ 11.56 PASS BOOK
+  Nikki Carreon               500,000   $35,800  $  8,700 $ 10,104 $ 13,921  $200,778 $ 14.34 PASS BOOK
+  Lael Hansen                 190,000    $5,000  $  4,375 $  5,081 $  7,000  $ 55,742 $ 10.48 BOOK BOOK
+  Coop                        420,000   $14,200  $      0 $      0 $      0  $108,900 $  9.26 PASS BOOK
+  Charles & Alyssa Forever    300,000   $18,000  $  7,540 $  8,756 $ 12,064  $122,641 $ 14.60 PASS BOOK
+  Rumi Robinson               200,000   $10,000  $  5,027 $  5,837 $  8,043  $ 50,714 $  9.06 PASS BOOK
+  Amanda Todhunter            200,000    $9,000  $      0 $      0 $      0  $ 69,759 $ 12.46 PASS BOOK
+  wavywebsurf                 500,000   $10,000  $      0 $      0 $      0  $157,126 $ 11.23 PASS BOOK
+  Empressive                  300,000    $8,000  $  7,540 $  8,756 $ 12,064  $132,072 $ 15.73 BOOK BOOK
+  kayla says                  190,000    $7,000  $      0 $      0 $      0  $ 56,327 $ 10.59 PASS BOOK
+  Tom Harlock                 320,000            $  8,043 $  9,340 $ 12,868  $ 86,682 $  9.68          
+  Cole Hastings               120,000    $8,500  $  2,533 $  3,401 $  4,869  $ 23,337 $  6.95 PASS BOOK
+  Javeus                      580,000   $19,000  $  9,251 $ 12,422 $ 17,782  $137,657 $  8.48 PASS BOOK
+  Zeliha Akpinar              350,000   $17,200  $      0 $      0 $      0  $ 53,890 $  5.50 PASS BOOK
+  struthless                  123,000            $      0 $      0 $      0  $ 25,273 $  7.34          
+  Jessica Kellgren-Fozard     100,000    $3,600  $  2,303 $  2,674 $  3,684  $ 29,867 $ 10.67 BOOK BOOK
+  Brendan Miller              189,000            $      0 $      0 $      0  $ 43,020 $  8.13          
+  Arielle Scarcella            80,000    $5,000  $  2,117 $  2,790 $  3,649  $ 29,376 $ 13.12 PASS BOOK
+  The Blaire White Project    470,000   $15,000  $      0 $      0 $      0  $191,160 $ 14.53 PASS BOOK
+  NEN FAM                   1,500,000   $20,000  $      0 $      0 $      0  $606,769 $ 14.45 PASS BOOK
+  Money & Macro               234,000   $11,500  $  5,391 $  7,238 $ 10,362  $ 26,346 $  4.02 PASS BOOK
+  Dawko                       250,000    $5,800  $      0 $      0 $      0  $ 52,284 $  7.47 PASS BOOK
+  GEN                         200,000    $5,750  $  4,608 $  6,187 $  8,857  $ 59,040 $ 10.54 BOOK BOOK
+  Shelby Church               125,000   $10,000  $      0 $      0 $      0  $ 41,237 $ 11.78 PASS BOOK
+  How Money Works             800,000   $17,200  $ 12,761 $ 17,133 $ 24,527  $169,812 $  7.58 BOOK BOOK
+  Dodford                     250,000    $6,000  $  5,760 $  7,733 $ 11,071  $ 55,039 $  7.86 BOOK BOOK
+  Jordan Theresa              300,000    $8,700  $  7,540 $  8,756 $ 12,064  $ 80,142 $  9.54 BOOK BOOK
+  David Achu                  250,000    $4,300  $      0 $      0 $      0  $ 67,339 $  9.62 PASS BOOK
+  RunnerEye                   160,000    $4,300  $      0 $      0 $      0  $ 42,095 $  9.40 PASS BOOK
+  Edvasian                    250,000    $8,600  $      0 $      0 $      0  $ 64,548 $  9.22 PASS BOOK
+  MYSTIC7                     150,000    $3,500  $  3,166 $  4,251 $  6,086  $ 34,865 $  8.30 BOOK BOOK
+  Weazy                       325,000    $4,300  $  7,488 $ 10,053 $ 14,392  $ 80,989 $  8.90 BOOK BOOK
+  Hannah Elise                 72,000    $5,700  $  1,934 $  2,246 $  3,094  $ 21,222 $ 10.53 PASS BOOK
+  monica razak                 30,000    $2,500  $      0 $      0 $      0  $ 14,274 $ 17.00 PASS BOOK
+  Maya Graves                  65,000    $4,000  $  1,746 $  2,028 $  2,794  $ 26,721 $ 14.68 PASS BOOK
+  Simply Naka                 120,000    $6,500  $  2,763 $  3,209 $  4,421  $ 31,637 $  9.42 PASS BOOK
+  Jordan Theresa              250,000            $      0 $      0 $      0  $ 66,785 $  9.54          
+  Morgan Venn                  20,000            $    555 $    644 $    888  $  4,983 $  8.90          
+  Odetta Rockhead-Kerr         50,000    $2,900  $  1,343 $  1,560 $  2,149  $ 24,285 $ 17.35 PASS BOOK
+  Mission Side Hustle         150,000    $4,200  $  3,166 $  4,251 $  6,086  $ 36,859 $  8.78 BOOK BOOK
+  AdviceWithErin               35,000            $      0 $      0 $      0  $  7,322 $  7.47          
+  Nicole Wong                   5,000            $      0 $      0 $      0  $  1,046 $  7.47          
+  Ben Sweeny                    6,000            $      0 $      0 $      0  $  1,255 $  7.47          
+  JJ Buckner                    2,200            $      0 $      0 $      0  $    460 $  7.47          
+  Jeff Isesele                    800            $      0 $      0 $      0  $    167 $  7.47          
+  Anna Reich                    2,000            $      0 $      0 $      0  $    418 $  7.47          
+  Angelo Castillo               5,000            $      0 $      0 $      0  $  1,046 $  7.47          
+  More Mia Maples             600,000   $35,000  $ 10,441 $ 12,125 $ 16,705  $194,768 $ 11.60 PASS BOOK
+  Faline San                  300,000    $6,000  $      0 $      0 $      0  $ 57,620 $  6.86 PASS BOOK
+  BlackBeltBarrister          250,000    $4,000  $  5,760 $  7,733 $ 11,071  $100,184 $ 14.31 BOOK BOOK
+  Savvy Finance                30,000    $1,750  $    763 $  1,025 $  1,467  $  9,514 $ 11.33 PASS BOOK
+  ThisisJohnWilliams           60,000    $2,900  $  1,477 $  1,984 $  2,840  $ 24,996 $ 14.88 PASS BOOK
+  sadie crowell               120,000    $8,600  $  2,763 $  3,209 $  4,421  $ 46,918 $ 13.97 PASS BOOK
+  HJ Evelyn                 1,200,000   $50,000  $ 20,881 $ 24,249 $ 33,410  $194,764 $  5.80 PASS BOOK
+  saranghoe                   450,000   $14,285  $ 11,310 $ 13,134 $ 18,096  $ 92,217 $  7.32 BOOK BOOK
+  Andrei Jikh                 500,000   $35,000  $  7,975 $ 10,708 $ 15,329  $120,348 $  8.60 PASS BOOK
+  KamikazeCash                 90,000    $2,200  $  2,216 $  2,975 $  4,259  $ 20,330 $  8.07 BOOK BOOK
+  Vortex                       60,000    $5,750  $  1,477 $  1,984 $  2,840  $ 19,392 $ 11.55 PASS BOOK
+  Investing Simplified - Professor G    85,000    $5,000  $  2,093 $  2,810 $  4,023  $ 28,656 $ 12.04 PASS BOOK
+  TheChicNatural               99,000   $10,400  $  2,659 $  3,088 $  4,255  $ 37,335 $ 13.47 PASS BOOK
+  THE WADS                     97,000   $11,700  $  2,606 $  3,026 $  4,169  $ 45,055 $ 16.59 PASS BOOK
+  According to Nicole          60,000    $3,100  $      0 $      0 $      0  $ 17,581 $ 10.47 PASS BOOK
+  AllyiahsFace                292,000   $17,500  $  7,339 $  8,523 $ 11,742  $116,045 $ 14.20 PASS BOOK
+  Mia Maples                1,200,000   $55,000  $ 20,881 $ 24,249 $ 33,410  $242,129 $  7.21 PASS BOOK
+  More Mia Maples             296,000   $22,000  $  7,440 $  8,639 $ 11,903  $ 97,319 $ 11.74 PASS BOOK
+  Nathaly Cuevas              343,000   $26,000  $  8,621 $ 10,011 $ 13,793  $133,303 $ 13.88 PASS BOOK
+  De'arra Taylor              414,000   $45,000  $ 10,405 $ 12,084 $ 16,648  $174,548 $ 15.06 PASS BOOK
+  Evil Pinely                  70,000            $      0 $      0 $      0  $ 15,672 $  8.00          
+  Family Friendly           1,000,000   $22,000  $ 15,951 $ 21,417 $ 30,659  $187,323 $  6.69 BOOK BOOK
+  DesTalks                     80,000            $      0 $      0 $      0  $ 29,311 $ 13.09          
+  Yummers                     100,000            $  2,111 $  2,834 $  4,057  $ 22,553 $  8.06          
+  Jon Law                     115,000    $4,300  $  2,428 $  3,259 $  4,666  $ 24,654 $  7.66 BOOK BOOK
+  CaitlynNeier                 80,000    $6,500  $  2,149 $  2,496 $  3,438  $ 24,133 $ 10.78 PASS BOOK
+  Chanel Richie                65,000    $2,900  $  1,746 $  2,028 $  2,794  $ 15,649 $  8.60 PASS BOOK
+  Uncomfy                     100,000   $10,000  $  2,303 $  2,674 $  3,684  $ 30,148 $ 10.77 PASS BOOK
+  HustleatHomeMom              83,000    $8,600  $  2,197 $  2,895 $  3,786  $ 17,364 $  7.47 PASS BOOK
+  BeautyTheBeastons            59,000   $11,500  $  1,562 $  2,058 $  2,691  $ 12,343 $  7.47 PASS BOOK
+  Jalfamily                    44,500    $3,600  $  1,217 $  1,603 $  2,097  $  9,310 $  7.47 PASS BOOK
+  UpFlip                      600,000   $10,000  $      0 $      0 $      0  $125,523 $  7.47 PASS BOOK
+
+======================================================================================================================================================
+  SUMMARY (410 with pitched prices)
+======================================================================================================================================================
+  V1 Aggressive: BOOK 129 / PASS 281
+  V2 APPU:       BOOK 410 / PASS   0
+  Agreement: 129/410 (31%)
+
+  DISAGREEMENTS (281):
+  Creator                     Pitched    V1 Agg    V1    V2 Max    V2    APPU
+  imuRgency                    $5,000 $      0  PASS $ 19,219  BOOK $  9.81
+  Laith                        $2,500 $  1,956  PASS $  6,685  BOOK $  5.97
+  amandamaryanna               $4,500 $      0  PASS $ 43,185  BOOK $ 10.28
+  Wonny                        $9,000 $      0  PASS $ 68,036  BOOK $  8.10
+  Dark Asia with Megan         $9,000 $      0  PASS $122,582  BOOK $ 10.95
+  NationSquid                  $3,800 $  3,786  PASS $ 20,769  BOOK $  9.27
+  Erika Angel                  $5,000 $  1,332  PASS $ 14,577  BOOK $ 17.36
+  The Pain Game                $8,000 $  4,869  PASS $ 25,708  BOOK $  7.65
+  Ohmeezzy                     $2,200 $      0  PASS $ 20,188  BOOK $ 12.02
+  Volksgeist                  $23,000 $      0  PASS $192,324  BOOK $  9.81
+  The Misery Machine           $4,400 $      0  PASS $ 65,982  BOOK $ 15.71
+  Liam Donovan                 $4,200 $      0  PASS $ 25,116  BOOK $  8.97
+  The Kick Off                 $5,800 $  4,259  PASS $ 20,027  BOOK $  7.95
+  Txunamy                     $48,000 $      0  PASS $251,046  BOOK $  7.47
+  Amir Odom                    $6,400 $      0  PASS $ 50,151  BOOK $ 14.93
+  gabi belle                  $40,000 $ 14,773  PASS $132,538  BOOK $  9.47
+  Wera                         $4,200 $  4,057  PASS $ 17,345  BOOK $  6.20
+  Michelle Mana                $5,000 $      0  PASS $ 38,442  BOOK $ 13.73
+  Andreas Eskander            $20,000 $      0  PASS $245,255  BOOK $ 10.95
+  Kendall Rae                 $28,000 $ 20,881  PASS $315,822  BOOK $ 15.04
+  Midwest Safety              $28,000 $      0  PASS $443,078  BOOK $ 14.39
+  Disturban                    $6,200 $      0  PASS $ 74,217  BOOK $  8.84
+  VULDAR                       $5,500 $      0  PASS $ 29,522  BOOK $ 10.55
+  Top5s                        $2,500 $      0  PASS $ 14,827  BOOK $ 10.59
+  Cold Case Detective          $1,500 $      0  PASS $ 23,411  BOOK $ 11.95
+  Sun Kissed Bucket List       $2,500 $  2,366  PASS $  8,433  BOOK $  6.02
+  LivingBobby                 $30,000 $ 24,527  PASS $136,154  BOOK $  6.08
+  The American Highlander      $3,000 $      0  PASS $ 24,065  BOOK $ 14.33
+  Chloé and sometimes Ludvig    $1,800 $      0  PASS $ 16,893  BOOK $ 12.07
+  drewdoes                    $22,000 $      0  PASS $234,771  BOOK $ 10.48
+  Indigo Traveller            $17,000 $ 13,285  PASS $ 62,029  BOOK $  7.39
+  Nico Grigg                  $38,000 $      0  PASS $284,636  BOOK $ 10.17
+  Matthew Ables                $5,800 $      0  PASS $ 70,391  BOOK $ 12.57
+  Matt Stonie                 $56,000 $ 17,713  PASS $ 89,700  BOOK $  8.01
+  OVERNIGHT                   $18,000 $ 10,669  PASS $ 79,089  BOOK $ 11.30
+  Beauty and the Beasts        $4,000 $      0  PASS $ 30,858  BOOK $ 11.02
+  Grief                        $7,200 $      0  PASS $ 63,264  BOOK $ 11.30
+  Chris Stuckmann              $5,000 $  4,869  PASS $ 27,800  BOOK $  8.28
+  Recap & Chill                $5,500 $      0  PASS $ 29,857  BOOK $  8.89
+  HiTop Films                  $3,500 $  2,840  PASS $ 11,828  BOOK $  7.04
+  Foltyn Reacts               $20,000 $      0  PASS $297,451  BOOK $ 11.81
+  TechJoyce                   $43,000 $      0  PASS $386,795  BOOK $  9.87
+  Michelle Reed                $4,200 $  2,149  PASS $ 22,633  BOOK $ 16.17
+  Max Fosh                    $58,000 $ 27,593  PASS $150,559  BOOK $  5.98
+  The Boys                    $50,000 $      0  PASS $179,041  BOOK $  9.84
+  Vat9Team                     $2,700 $      0  PASS $ 29,590  BOOK $ 11.74
+  Unspeakable Studios         $18,000 $      0  PASS $412,814  BOOK $ 14.75
+  Brawadis                    $35,000 $ 15,329  PASS $139,286  BOOK $  9.95
+  Brave Wilderness            $12,000 $  8,857  PASS $ 51,544  BOOK $  9.21
+  Imbrandonfarris             $28,000 $ 12,064  PASS $118,694  BOOK $ 14.13
+  Crispy Concords             $28,000 $ 17,713  PASS $ 83,075  BOOK $  7.42
+  Bobia                        $3,500 $      0  PASS $ 45,312  BOOK $ 16.19
+  Vat19                        $2,200 $      0  PASS $ 31,889  BOOK $ 11.39
+  FaZe Rug                   $100,000 $      0  PASS $803,876  BOOK $  9.57
+  HIVEMIND UNLIMITED           $3,500 $  3,313  PASS $ 22,262  BOOK $ 11.36
+  GreenGay                     $1,500 $      0  PASS $ 20,553  BOOK $  9.79
+  The Venture Room             $8,500 $  4,869  PASS $ 28,835  BOOK $  8.58
+  Comic Drake                  $3,500 $  2,650  PASS $ 12,265  BOOK $  7.82
+  John Wolfe                  $11,000 $  8,857  PASS $ 63,374  BOOK $ 11.32
+  RedFalcon                   $12,000 $  8,857  PASS $ 60,083  BOOK $ 10.73
+  Mickey Munch                $20,000 $      0  PASS $283,566  BOOK $ 12.66
+  Tappy                        $7,200 $  4,259  PASS $ 23,368  BOOK $  9.27
+  Geoffrey James               $6,000 $      0  PASS $ 38,648  BOOK $  7.27
+  TapWater                     $5,700 $  3,786  PASS $ 22,008  BOOK $  9.83
+  SeaWattgaming               $22,000 $      0  PASS $405,076  BOOK $  9.65
+  BigB2Plus                    $2,800 $  2,280  PASS $ 15,279  BOOK $ 10.92
+  ZChum                       $42,000 $ 39,856  PASS $285,272  BOOK $  7.84
+  The Indie Projects           $2,600 $      0  PASS $ 18,980  BOOK $  7.53
+  Tylers Fishing Posts         $3,000 $  1,711  PASS $ 10,804  BOOK $ 11.03
+  Wag Entertainment            $4,200 $  4,057  PASS $ 24,179  BOOK $  8.64
+  I Can Do That                $4,400 $  4,057  PASS $ 28,348  BOOK $ 10.13
+  Restoring La Chartreuse      $1,400 $      0  PASS $  8,504  BOOK $ 10.13
+  Journey With The Hintons    $17,000 $      0  PASS $ 53,945  BOOK $ 16.06
+  The Exit Manual              $5,700 $  4,057  PASS $ 20,193  BOOK $  7.21
+  Adam Stew                    $5,000 $  2,366  PASS $ 16,519  BOOK $ 11.80
+  UnitedPeoplesTV              $4,800 $  3,786  PASS $ 11,929  BOOK $  5.33
+  Motivedia - Boxing          $20,000 $ 11,071  PASS $ 71,773  BOOK $ 10.26
+  Jada Waters                  $5,000 $  3,684  PASS $ 46,263  BOOK $ 16.53
+  Worcester Terrariums        $15,000 $      0  PASS $169,512  BOOK $ 10.09
+  Weird History Food           $5,500 $  3,786  PASS $ 29,429  BOOK $ 13.14
+  FatalBreakdown               $2,800 $  1,956  PASS $  9,325  BOOK $  8.33
+  RobertIDK                    $4,400 $      0  PASS $ 35,771  BOOK $ 12.78
+  The Wealth Explainer         $7,000 $  4,057  PASS $ 19,645  BOOK $  7.02
+  Timeless Tim                 $5,000 $      0  PASS $ 25,824  BOOK $ 10.25
+  BeyondTheBlue                $9,000 $  8,857  PASS $ 47,296  BOOK $  8.45
+  Ian Lauer Astro              $5,000 $  4,057  PASS $ 23,212  BOOK $  8.29
+  CaspianReport               $24,000 $ 15,499  PASS $ 68,245  BOOK $  6.96
+  Lost Chord                   $7,150 $  4,057  PASS $ 24,222  BOOK $  8.65
+  Big Water Guy                $7,250 $  4,057  PASS $ 33,129  BOOK $ 11.83
+  Saucy Seth                   $7,500 $      0  PASS $ 42,793  BOOK $ 15.29
+  Fishin' with Tate            $8,000 $  7,709  PASS $ 76,536  BOOK $ 14.39
+  Nikki Delventhal             $8,600 $  6,086  PASS $ 55,335  BOOK $ 13.18
+  Dr. Jordan Breeding          $8,890 $  4,463  PASS $ 40,956  BOOK $ 13.30
+  Soggy Cereal                $11,500 $  7,303  PASS $ 44,060  BOOK $  8.74
+  Reed The Fishmonger         $13,000 $  7,303  PASS $ 53,748  BOOK $ 10.67
+  Salem Tovar                 $17,200 $ 13,921  PASS $184,666  BOOK $ 13.19
+  KickinTheirBASSTV           $22,000 $ 17,713  PASS $162,108  BOOK $ 14.48
+  Guiny                       $22,000 $ 13,285  PASS $ 39,967  BOOK $  4.76
+  America's Funniest Home Videos   $22,500 $      0  PASS $ 65,610  BOOK $  9.37
+  Daniel Thrasher             $17,000 $      0  PASS $ 53,334  BOOK $  9.53
+  Simple Paint                $17,150 $ 15,329  PASS $119,049  BOOK $  8.51
+  SpeirsTheAmazingHD          $14,300 $      0  PASS $133,736  BOOK $ 11.94
+  SLOAN                       $14,300 $  5,527  PASS $ 59,370  BOOK $ 14.14
+  Sam and Monica              $14,000 $  3,910  PASS $ 20,989  BOOK $  7.50
+  Alexander Avila             $12,200 $      0  PASS $ 82,119  BOOK $  8.63
+  Michael Button              $11,500 $ 11,071  PASS $ 68,213  BOOK $  9.75
+  It's Blanko                 $11,250 $  9,742  PASS $ 53,644  BOOK $  8.71
+  Ryan Beard Productions      $11,000 $      0  PASS $ 81,463  BOOK $  9.70
+  Allison Baek                 $8,050 $      0  PASS $ 52,881  BOOK $ 10.49
+  Stoic Stick                  $7,250 $  6,086  PASS $ 29,095  BOOK $  6.93
+  Dayum                       $12,890 $      0  PASS $268,541  BOOK $  9.59
+  Mediocre Tutorials and Reviews    $7,150 $  4,057  PASS $ 40,461  BOOK $ 14.45
+  Fletcher The Fisherman      $29,000 $ 15,329  PASS $168,792  BOOK $ 12.06
+  Joe Bartolozzi              $25,000 $ 21,461  PASS $191,496  BOOK $  9.77
+  Joe Bart Games              $17,500 $ 12,802  PASS $121,459  BOOK $ 14.46
+  The Game Theorists          $35,000 $      0  PASS $218,133  BOOK $  8.66
+  The Film Theorists          $35,000 $      0  PASS $189,160  BOOK $  9.01
+  Kendall Gray                $55,000 $ 33,725  PASS $426,660  BOOK $ 13.86
+  KG Gaming                   $20,000 $      0  PASS $126,545  BOOK $ 15.07
+  FrenchieFries               $52,000 $      0  PASS $290,032  BOOK $ 10.36
+  Stranger Stories             $7,200 $      0  PASS $104,512  BOOK $ 14.93
+  Catching Killers             $8,600 $      0  PASS $107,375  BOOK $ 12.79
+  NOT THE GOOD GIRL            $8,650 $      0  PASS $ 59,051  BOOK $ 14.06
+  Slapped Ham                  $8,800 $      0  PASS $ 79,521  BOOK $ 11.36
+  iNabber                     $11,500 $      0  PASS $211,867  BOOK $  9.46
+  Spill Sesh                  $10,000 $  5,527  PASS $ 59,379  BOOK $ 14.14
+  Insanity Bodycam            $17,100 $ 15,329  PASS $218,896  BOOK $ 15.64
+  Daniel Krafft               $22,000 $      0  PASS $138,817  BOOK $  7.08
+  Something Sinister           $1,500 $      0  PASS $ 57,030  BOOK $ 11.98
+  What Lurks Beneath           $7,700 $      0  PASS $120,295  BOOK $ 14.32
+  Josh Prime                   $2,250 $      0  PASS $ 45,470  BOOK $ 16.24
+  Josh Prime 2                 $2,200 $      0  PASS $ 47,220  BOOK $ 16.87
+  dorisxchi                    $4,000 $      0  PASS $ 84,155  BOOK $ 12.02
+  Chase Bridges                $2,950 $      0  PASS $ 38,654  BOOK $  9.21
+  Savox                        $2,200 $      0  PASS $ 38,445  BOOK $ 11.44
+  BillyBinges                  $2,000 $  1,332  PASS $ 10,121  BOOK $ 12.05
+  Kyle Hates Hiking           $13,000 $      0  PASS $133,496  BOOK $ 13.62
+  LoeyLane                    $10,000 $  8,043  PASS $ 87,118  BOOK $ 15.56
+  Johnny 2 Cellos              $5,200 $      0  PASS $ 61,137  BOOK $ 10.92
+  The Void                     $3,850 $      0  PASS $ 34,512  BOOK $ 12.33
+  Depths of Despair            $3,600 $      0  PASS $ 39,674  BOOK $ 11.81
+  SciManDan                    $3,850 $  2,366  PASS $ 12,184  BOOK $  8.70
+  sixteenleo                   $3,250 $      0  PASS $ 36,111  BOOK $ 12.90
+  ReignBot                     $2,640 $      0  PASS $ 22,475  BOOK $  8.03
+  Luke Alexander               $3,100 $  1,110  PASS $  7,703  BOOK $ 11.01
+  Creaky Blinder™              $2,850 $    978  PASS $  4,354  BOOK $  7.78
+  CDTVProductions              $3,000 $  1,711  PASS $  7,716  BOOK $  7.88
+  Naomi Jon                   $29,000 $ 27,841  PASS $234,524  BOOK $  8.38
+  revolutionaryth0t            $2,900 $      0  PASS $ 19,845  BOOK $  7.88
+  Megan and Ben                $9,300 $      0  PASS $ 76,777  BOOK $  8.31
+  TornadoTRX                  $25,000 $      0  PASS $625,538  BOOK $ 12.41
+  Film Cooper                 $43,000 $ 22,273  PASS $283,424  BOOK $ 12.66
+  Oats Jenkins                 $5,000 $      0  PASS $ 62,043  BOOK $ 11.08
+  Squampopulous                $6,000 $  4,057  PASS $ 26,221  BOOK $  9.37
+  JackFed                      $4,250 $      0  PASS $ 34,255  BOOK $  8.74
+  Megan Moon                   $4,500 $  2,579  PASS $ 19,315  BOOK $ 11.50
+  latea & Acis                 $5,800 $      0  PASS $ 38,281  BOOK $  9.77
+  Tell Us More                 $3,100 $      0  PASS $ 23,239  BOOK $  8.30
+  15 Minutes of Shame          $3,000 $  1,956  PASS $ 10,244  BOOK $  9.15
+  RAZZLE                       $1,950 $      0  PASS $ 12,966  BOOK $  9.26
+  Stephanie Soo               $40,000 $ 30,626  PASS $297,369  BOOK $  9.66
+  Dr Insanity                 $29,000 $      0  PASS $1,606,785  BOOK $ 11.48
+  Matthew Cox | Inside True Crime    $2,000 $      0  PASS $ 35,481  BOOK $ 15.84
+  The Villains                 $7,500 $      0  PASS $167,591  BOOK $ 11.97
+  ManyKudos                    $8,500 $  4,057  PASS $ 24,067  BOOK $  8.60
+  Addy                         $4,000 $      0  PASS $ 53,147  BOOK $  9.49
+  Jordan Cunningham            $3,000 $      0  PASS $ 29,775  BOOK $ 10.64
+  Abbie Ree                    $3,000 $      0  PASS $ 25,501  BOOK $  9.11
+  Alex O'Connor                $8,000 $      0  PASS $ 34,497  BOOK $  8.22
+  Marina McBain                $7,000 $      0  PASS $ 62,738  BOOK $  8.96
+  That Chapter                $26,000 $      0  PASS $270,882  BOOK $ 13.82
+  Poppies Studios             $18,000 $      0  PASS $223,670  BOOK $  7.99
+  morgans vlogs               $20,000 $ 16,085  PASS $163,617  BOOK $ 14.61
+  Mai Pham                    $26,000 $ 12,064  PASS $ 72,647  BOOK $  8.65
+  Mr. Nightmare               $17,000 $      0  PASS $252,711  BOOK $ 12.04
+  CelinaSpookyBoo             $14,000 $      0  PASS $124,834  BOOK $ 14.86
+  Familia Diamond             $50,000 $      0  PASS $350,012  BOOK $ 12.50
+  Blackfiles                   $9,000 $  8,857  PASS $ 41,939  BOOK $  7.49
+  Pantons Squad                $8,500 $  4,421  PASS $ 43,990  BOOK $ 13.09
+  Joon The King               $13,000 $      0  PASS $105,441  BOOK $  9.91
+  Jancy Family                $15,000 $      0  PASS $ 81,778  BOOK $ 16.23
+  Karolina Żebrowska           $7,000 $      0  PASS $ 28,977  BOOK $  6.90
+  MAZELEE                     $20,000 $ 18,097  PASS $243,316  BOOK $ 13.37
+  The Anazala Family          $78,000 $      0  PASS $3,093,329  BOOK $ 13.81
+  B N S                       $11,000 $  8,857  PASS $ 64,163  BOOK $ 11.46
+  Coffeehouse Crime           $23,000 $      0  PASS $181,179  BOOK $  9.96
+  Garrett Watts               $45,000 $ 33,410  PASS $404,751  BOOK $ 12.05
+  Elsy Guevara                $12,000 $  4,385  PASS $ 61,550  BOOK $ 18.48
+  JOLLY                       $40,000 $      0  PASS $179,347  BOOK $  8.54
+  The Invisible Hand           $9,000 $  8,857  PASS $ 37,664  BOOK $  6.73
+  Savantics                    $2,940 $      0  PASS $ 24,856  BOOK $  8.88
+  Khaotic Viewing              $4,900 $      0  PASS $ 31,009  BOOK $ 11.08
+  Swiftologist                 $6,000 $      0  PASS $ 57,538  BOOK $ 10.28
+  gabi belle                  $15,000 $      0  PASS $185,554  BOOK $  9.47
+  STRANGE ÆONS                $11,200 $      0  PASS $ 73,090  BOOK $  8.70
+  aini                         $9,800 $      0  PASS $ 40,768  BOOK $  7.28
+  Shelbizleee                  $9,000 $  3,223  PASS $ 25,595  BOOK $ 12.19
+  Trin Lovell                  $5,950 $  3,684  PASS $ 24,775  BOOK $  8.85
+  Maddy Morphosis              $4,200 $      0  PASS $ 42,763  BOOK $ 10.18
+  Negative Legend              $3,000 $      0  PASS $ 26,141  BOOK $  9.34
+  Frugal Aesthetic             $9,100 $  8,857  PASS $ 34,421  BOOK $  6.15
+  Daniel Thrasher Plus         $4,200 $      0  PASS $ 32,000  BOOK $  9.53
+  Vincent Joseph               $3,500 $  2,149  PASS $ 14,512  BOOK $ 10.37
+  Alizee                       $2,800 $  2,149  PASS $ 12,369  BOOK $  8.84
+  Jaime French                $11,200 $  8,043  PASS $ 86,908  BOOK $ 15.52
+  Jess of the Shire            $2,800 $  2,366  PASS $ 15,086  BOOK $ 10.78
+  Saji Sharma                  $5,500 $      0  PASS $ 55,927  BOOK $  9.99
+  Hugo Henderson               $3,500 $      0  PASS $ 29,144  BOOK $ 10.96
+  ModernGurlz                  $6,000 $      0  PASS $ 44,755  BOOK $ 10.66
+  Intelexual Media             $5,000 $      0  PASS $ 49,661  BOOK $ 14.78
+  xeviuniverse                $21,000 $ 11,071  PASS $ 76,143  BOOK $ 10.88
+  Cruel World Happy Mind      $11,500 $      0  PASS $ 89,571  BOOK $ 12.80
+  Austin Green                 $2,500 $      0  PASS $ 17,229  BOOK $ 12.31
+  VangelinaSkov                $2,800 $      0  PASS $ 19,377  BOOK $ 11.54
+  Benaminute                  $10,000 $      0  PASS $ 86,568  BOOK $ 10.31
+  Ploopy678                    $4,500 $      0  PASS $ 30,929  BOOK $ 11.05
+  Chad Chad Chad              $25,000 $      0  PASS $299,059  BOOK $ 10.68
+  Crumb                       $17,000 $ 15,056  PASS $ 74,890  BOOK $  7.87
+  The Queer Kiwi               $2,500 $      0  PASS $ 15,879  BOOK $ 11.34
+  Doxie Carter                 $8,500 $  4,692  PASS $ 45,640  BOOK $ 13.59
+  Not Even Emily               $7,500 $      0  PASS $ 57,910  BOOK $  9.40
+  Ammy Robinson                $4,000 $  3,684  PASS $ 42,307  BOOK $ 15.11
+  Toni Bryanne TV              $5,750 $  3,684  PASS $ 39,171  BOOK $ 13.99
+  Camryn Suzanne               $5,700 $      0  PASS $ 74,775  BOOK $ 13.36
+  Klailea                      $5,100 $  3,438  PASS $ 31,256  BOOK $ 13.96
+  Chaz Kirschmann              $5,000 $      0  PASS $ 86,147  BOOK $ 15.39
+  Janae Danyiel               $17,000 $ 12,064  PASS $117,110  BOOK $ 13.94
+  FoxAkimbo                    $2,500 $  2,280  PASS $ 15,361  BOOK $ 10.97
+  Herby Revolus                $7,900 $      0  PASS $ 67,498  BOOK $ 12.69
+  Jacob Sharpe                 $4,300 $      0  PASS $ 25,889  BOOK $ 11.56
+  Annamarie Forcino            $9,250 $      0  PASS $ 90,859  BOOK $ 10.82
+  OUTLORE with Eleanor Neale   $22,000 $ 13,921  PASS $124,834  BOOK $  8.92
+  j aubrey                    $35,000 $      0  PASS $258,998  BOOK $ 11.56
+  Nikki Carreon               $35,800 $ 13,921  PASS $200,778  BOOK $ 14.34
+  Coop                        $14,200 $      0  PASS $108,900  BOOK $  9.26
+  Charles & Alyssa Forever    $18,000 $ 12,064  PASS $122,641  BOOK $ 14.60
+  Rumi Robinson               $10,000 $  8,043  PASS $ 50,714  BOOK $  9.06
+  Amanda Todhunter             $9,000 $      0  PASS $ 69,759  BOOK $ 12.46
+  wavywebsurf                 $10,000 $      0  PASS $157,126  BOOK $ 11.23
+  kayla says                   $7,000 $      0  PASS $ 56,327  BOOK $ 10.59
+  Cole Hastings                $8,500 $  4,869  PASS $ 23,337  BOOK $  6.95
+  Javeus                      $19,000 $ 17,782  PASS $137,657  BOOK $  8.48
+  Zeliha Akpinar              $17,200 $      0  PASS $ 53,890  BOOK $  5.50
+  Arielle Scarcella            $5,000 $  3,649  PASS $ 29,376  BOOK $ 13.12
+  The Blaire White Project    $15,000 $      0  PASS $191,160  BOOK $ 14.53
+  NEN FAM                     $20,000 $      0  PASS $606,769  BOOK $ 14.45
+  Money & Macro               $11,500 $ 10,362  PASS $ 26,346  BOOK $  4.02
+  Dawko                        $5,800 $      0  PASS $ 52,284  BOOK $  7.47
+  Shelby Church               $10,000 $      0  PASS $ 41,237  BOOK $ 11.78
+  David Achu                   $4,300 $      0  PASS $ 67,339  BOOK $  9.62
+  RunnerEye                    $4,300 $      0  PASS $ 42,095  BOOK $  9.40
+  Edvasian                     $8,600 $      0  PASS $ 64,548  BOOK $  9.22
+  Hannah Elise                 $5,700 $  3,094  PASS $ 21,222  BOOK $ 10.53
+  monica razak                 $2,500 $      0  PASS $ 14,274  BOOK $ 17.00
+  Maya Graves                  $4,000 $  2,794  PASS $ 26,721  BOOK $ 14.68
+  Simply Naka                  $6,500 $  4,421  PASS $ 31,637  BOOK $  9.42
+  Odetta Rockhead-Kerr         $2,900 $  2,149  PASS $ 24,285  BOOK $ 17.35
+  More Mia Maples             $35,000 $ 16,705  PASS $194,768  BOOK $ 11.60
+  Faline San                   $6,000 $      0  PASS $ 57,620  BOOK $  6.86
+  Savvy Finance                $1,750 $  1,467  PASS $  9,514  BOOK $ 11.33
+  ThisisJohnWilliams           $2,900 $  2,840  PASS $ 24,996  BOOK $ 14.88
+  sadie crowell                $8,600 $  4,421  PASS $ 46,918  BOOK $ 13.97
+  HJ Evelyn                   $50,000 $ 33,410  PASS $194,764  BOOK $  5.80
+  Andrei Jikh                 $35,000 $ 15,329  PASS $120,348  BOOK $  8.60
+  Vortex                       $5,750 $  2,840  PASS $ 19,392  BOOK $ 11.55
+  Investing Simplified - Professor G    $5,000 $  4,023  PASS $ 28,656  BOOK $ 12.04
+  TheChicNatural              $10,400 $  4,255  PASS $ 37,335  BOOK $ 13.47
+  THE WADS                    $11,700 $  4,169  PASS $ 45,055  BOOK $ 16.59
+  According to Nicole          $3,100 $      0  PASS $ 17,581  BOOK $ 10.47
+  AllyiahsFace                $17,500 $ 11,742  PASS $116,045  BOOK $ 14.20
+  Mia Maples                  $55,000 $ 33,410  PASS $242,129  BOOK $  7.21
+  More Mia Maples             $22,000 $ 11,903  PASS $ 97,319  BOOK $ 11.74
+  Nathaly Cuevas              $26,000 $ 13,793  PASS $133,303  BOOK $ 13.88
+  De'arra Taylor              $45,000 $ 16,648  PASS $174,548  BOOK $ 15.06
+  CaitlynNeier                 $6,500 $  3,438  PASS $ 24,133  BOOK $ 10.78
+  Chanel Richie                $2,900 $  2,794  PASS $ 15,649  BOOK $  8.60
+  Uncomfy                     $10,000 $  3,684  PASS $ 30,148  BOOK $ 10.77
+  HustleatHomeMom              $8,600 $  3,786  PASS $ 17,364  BOOK $  7.47
+  BeautyTheBeastons           $11,500 $  2,691  PASS $ 12,343  BOOK $  7.47
+  Jalfamily                    $3,600 $  2,097  PASS $  9,310  BOOK $  7.47
+  UpFlip                      $10,000 $      0  PASS $125,523  BOOK $  7.47
